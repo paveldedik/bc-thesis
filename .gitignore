@@ -1,3 +1,5 @@
+*.514pk
+*.600pk
 *.acn
 *.acr
 *.alg
@@ -22,10 +24,12 @@
 *.nav
 *.nlo
 *.out
+*.pdf
 *.pdfsync
 *.ps
 *.snm
 *.synctex.gz
+*.tfm
 *.toc
 *.vrb
 *.xdy
