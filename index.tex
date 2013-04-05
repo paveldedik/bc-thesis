@@ -5,8 +5,26 @@
 \usepackage[czech]{babel}
 \usepackage{url}
 \usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{blindtext} % TODO: remove import %
 
-\thesistitle{název}
+\lstdefinelanguage{css}{
+    sensitive=false,
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+}
+
+\lstset{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=15pt,
+    xleftmargin=30pt,
+}
+
+\thesistitle{Grafické uživatelské rozhraní systému pro správu závěrečných prací}
 \thesissubtitle{Bakalářská práce}
 \thesisstudent{Pavel Dedík}
 \thesiswoman{false}
@@ -17,13 +35,21 @@
 \setlength{\parindent}{0,5cm}
 
 \begin{document}
+\FrontMatter
 \ThesisTitlePage
 
-\begin{ThesisDeclaration}		
+\begin{ThesisDeclaration}
 \DeclarationText
 \end{ThesisDeclaration}
 
+\MainMatter
+
+\tableofcontents
+
+\input{chapters/intro}
 \input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
 
 \end{document}
-
