@@ -3,9 +3,11 @@
 \usepackage[plainpages=false, pdfpagelabels]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
 \usepackage{url}
-\usepackage{indentfirst}
 \usepackage{listings}
+\usepackage{graphicx}
+\usepackage{enumitem}
 \usepackage{blindtext} % TODO: remove import %
 
 \lstdefinelanguage{css}{
@@ -35,6 +37,7 @@
 \setlength{\parindent}{0,5cm}
 
 \begin{document}
+
 \FrontMatter
 \ThesisTitlePage
 
@@ -52,7 +55,6 @@
 \input{chapters/chapter3}
 \input{chapters/chapter4}
 
-\cite{grails-documentation}
 \cite{groovy-in-action}
 
 \bibliographystyle{IEEEtran}

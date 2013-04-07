@@ -14,8 +14,5 @@ bp.pdf: index.tex
 clean:
 	rm -rf *.{log,out,pdf,aux,tfm,600pk,514pk,fls,toc,bbl,blg,fdb_latexmk,synctex.gz}
 
-clean-all: clean
-	rm -rf *.pdf
-
-recreate: clean-all all
+recreate: clean all
 	evince bp.pdf
