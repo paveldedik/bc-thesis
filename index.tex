@@ -8,8 +8,13 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{enumitem}
 \usepackage{blindtext} % TODO: remove import %
+
+\floatstyle{plain}
+\newfloat{example}{H}{lop}
+\floatname{example}{Příklad}
 
 \lstdefinelanguage{css}{
     sensitive=false,

@@ -1,11 +1,70 @@
-\chapter{Značkovací a stylovací jazyky}
+\chapter{Webové technologie}
 \label{chap:languages}
+
+\textbf{Značkovací jazyky} (anglicky \textit{Markup languages}) jsou formální jazyky, které umožňují v rámci rozšíření textu v přirozeném jazyce syntakticky rozlišit jednotlivé konstrukce pro vymezení struktury textu a jeho významu; dále umožňují ukládat například informace o původu, obsahu a autorských právech dokumentu \cite{modern-markup}.
+
+Příklady nejznámějších značkovacích jazyků---
+
+\begin{itemize}
+    \item XML (\textit{eXtensible Markup Language}) -- vysoce flexibilní metajazyk určený pro popis různých typů dat, které jsou čitelné jak člověkem, tak počítačem.
+    \item HTML (\textit{HyperText Markup Language}) -- jazyk určený pro publikaci dat na webu.
+    \item XHTML (\textit{eXtensible HyperText Markup Language}) -- stejně jako HTML slouží pro popis dat webových dokumentů avšak za použití XML syntaxe.
+    \item \TeX, \LaTeX -- jazyky určené převážně pro sazbu matematických a akademických dokumentů.
+    \item SVG (\textit{Scalable Vector Graphics}) -- slouží pro popis vektorových obrázků s využitím XML syntaxe.
+    \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu, který je používán pro ukládání a výměnu textových informací. Na rozdíl od XML je čitelnější a méně datově náročný (viz srovnání XML dokumentu \ref{example:xml} a JSON dokumentu \ref{example:json}).
+    \item Markdown -- určený pro konverzi textu do méně čitelného HTML. Markdown je využíván převážně pro sazbu uživatelských diskuzí a komentářů webových aplikací.
+\end{itemize}
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<product id="123">
+    <name>Ferrari F430</name>
+    <manufacturer>Ferrari</manufacturer>
+    <class>Sports car</class>
+</product>
+    \end{lstlisting}
+    \caption{XML dokument}
+    \label{example:xml}
+\end{example}
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+{
+    "product": {
+        "id": "123",
+        "name": "Ferrari F430",
+        "manufacturer": "Ferrari",
+        "class": "Sports car",
+    }
+}
+    \end{lstlisting}
+    \caption{JSON dokument}
+    \label{example:json}
+\end{example}
+
+\textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu XML a HTML dokumentů, jejich layout nebo vizuální podobu. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku).
+
+Příklady stylovacích jazyků---
+
+\begin{itemize}
+    \item CSS (\textit{Cascading Style Sheets}) -- jazyk specificky určený pro stylování webových dokumentů.
+    \item XSL (\textit{eXtensible Stylesheet Language}) -- rodina jazyků určených pro prezentaci a transformaci XML dokumentů.
+    \item SASS (\textit{Syntactically Awesome Stylesheets}) -- nestandardizovaný stylovací jazyk, který rozšiřuje CSS o dynamické chování (umožňuje definovat například proměnné, mixiny nebo funkce).
+    \item LESS (\textit{Leaner CSS}) -- alternativa SASS.
+\end{itemize}
 
 \section{HTML}
 \label{sec:html}
 
+\subsection{HTML5}
+
 \section{CSS}
 \label{sec:css}
+
+\subsection{CSS3}
 
 \section{LESS}
 \label{sec:less}
@@ -13,4 +72,57 @@
 \section{Twitter Bootstrap}
 \label{sec:bootsrap}
 
+Twitter Bootstrap (dále jen Bootstrap) je sada CSS stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistenci mezi vývojáři ve společnosti Twitter. V roce 2011 byl Bootstrap uvolněn jako open-source projekt a nyní se jedná o jeden z nejpopulárnějších webových rámců.
 
+Větší část Bootstrapu je napsaná v LESS, primárně je však dostupná zkompilovaná verze v CSS. Bootstrap má relativně vyspělou podporu technologií HTML5 a CSS3, vyžaduje tedy deklaraci HTML5 doctypu. JavaScriptové komponenty jsou postavené na knihovně jQuery \footnotemark[1]. Některé nástroje a komponenty Bootstrapu následují.
+
+\footnotetext[1]{jQuery je open-source JavaScriptová knihovna, určená především pro manipulaci s HTML dokumenty.}
+
+\subsection{Grid systém a layout}
+
+Grid systém rozděluje horizontální a vertikální prostor webové stránky na části, kde může být umístěn text, nadpisy, obrázky nebo reklamní elementy. Implicitní grid systém Bootstrapu je rozdělen na 12 sloupců s šířkou 940$px$ pro fixní layout.
+
+Pro vytvoření základního layoutu HTML stránky jsou v Bootstrapu určené třídy \texttt{.span}$m$ a \texttt{.row}, kde proměnná $m$ definuje šířku bloku. Šířku bloku \texttt{.span} lze vypočítat ze vzorce---
+$$940px * \frac{m}{12}$$
+Třída \texttt{.row} slouží pouze pro zaobalení dědičných elementů (viz příklad \ref{example:basic-layout}).
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+<div class="row">
+  <div class="span9">...</div>
+  <div class="span3">...</div>
+</div>
+    \end{lstlisting}
+    \caption{Základní layout stránky rozdělený na dva sloupce.}
+    \label{example:basic-layout}
+\end{example}
+
+V rámci komplexnějšího layoutu lze použít třídy \texttt{.offset}$m$, které definují odsazení bloku od levého okraje. Proměnná $m$ představuje úroveň odsazení.
+
+\subsection{Responzivní design}
+
+Responzivní design reaguje na své prostředí \cite{responsive-design}. Jedná se o metodu, jak přizpůsobit HTML stránky dle šířky displeje zařízení. Tato technika je v posledních letech populární především díky rozšířenosti mobilních zařízení. Nevýhodou responzivního designu jsou vyšší požadavky na objem přenášených dat.
+
+V Bootstrapu lze povolit responzivní design zahrnutím náležitého CSS stylu a meta tagu uvnitř HTML hlavičky dokumentu. Implicitně je responzivní layout rozdělen pro displeje s šířkou nad 1200$px$, nad 980$px$, nad 768$px$, pod 767$px$ a pod 480$px$.
+
+\subsection{Typografie}
+
+Pro úpravu typografie v Bootstrapu je určený soubor \texttt{variables.less}, kde lze nastavit velikost písma, velikost odstavce, řádkování a další komponenty (Příklad \ref{example:bootstrap-variables}). Pro zarovnání textu slouží třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right}.
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+@baseFontSize:          16px;
+@baseFontFamily:        Arial, sans-serif;
+@baseLineHeight:        23px;
+@altFontFamily:         Georgia, serif;
+    \end{lstlisting}
+    \caption{Část obsahu souboru \texttt{variables.less}}
+    \label{example:bootstrap-variables}
+\end{example}
+
+\subsection{Formuláře}
+\subsection{Tlačítka}
+\subsection{Navigační menu}
+\subsection{Modály}
