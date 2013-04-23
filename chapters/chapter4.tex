@@ -153,3 +153,25 @@ V grafickém návrhu používám osm stupňů šedi a dva stupně červené barv
 \end{figure}
 
 \section{Kódování šablon}
+
+Hlavní funkce systému jsou napsané v programovacím jazyce Groovy za použití platformy Grails. Výchozí jazyk této platformy pro popis prezentační vrstvy systému je GSP (\textit{Groovy Server Pages}), což je jazyk značně inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů. Syntaxe GSP vychází z XML, nejedná se však o XML validní dokumenty.
+
+Dále jsem v systému použil Twitter Bootstrap, díky kterému je návrh jednotlivých HTML dokumentů konzistentní a lépe udržovatelný. Zároveň je tak docíleno vyšší podpory webovými prohlížeči, přičemž jsou dodržovány osvědčené postupy a doporučení.
+
+Prezenční vrstva systému využívá následující technologie, knihovny a webové rámce:
+
+\begin{itemize}
+    \item HTML~5 (viz kapitola~\ref{sec:html})
+    \item CSS~3 (viz kapitola~\ref{sec:css})
+    \item LESS (viz kapitola~\ref{sec:less})
+    \item JavaScript\footnotemark[1]
+    \item Twitter Bootstrap (viz kapitola~\ref{sec:bootstrap})
+    \item Groovy Server Pages
+\end{itemize}
+
+Zatímco ve čtvrté kapitole jsem se věnoval specifikaci těchto technologií, nyní se zaměřím na jejich použití v našem systému. Vzhledem k zaměření systému však není potenciál některých technologií plně využit (jde především o HTML~5 standard).
+
+\footnotetext[1]{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}
+
+\section{HTML stránky}
+\section{Kaskádové styly}
