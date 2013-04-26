@@ -80,15 +80,18 @@ Každá HTML stránka musí začínat deklarací doctypu, který stanovuje verzi
 
 \subsection{HTML~5}
 
-HTML~5 je zcela nový W3C standard pro tvorbu webových stránek, který nahrazuje více než 10 let starý standard HTML~4.01. Mezi některé nové nástroje a vylepšení patří---
+HTML~5 je zcela nový připravovaný W3C standard pro tvorbu webových stránek, který nahrazuje více než 10 let starý standard HTML~4.01. Mezi některé nové nástroje a vylepšení patří---
 
 \begin{itemize}
     \item zjednodušený doctype -- \texttt{<!DOCTYPE html>}
-    \item podpora multimédií a 3D animací, která je zajištěna technologií WebGL -- elementy \texttt{<video>}, \texttt{<audio>} a \texttt{<canvas>}
+    \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>}
+    \item podpora vektorových grafických obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>}
     \item sémanticky oddělená hlavička a patička stránky -- elementy \texttt{<header>} a \texttt{<footer>}
-    \item podpora akcelerace grafickou kartou
-    \item podpora mobilních zařízení
+    \item podpora akcelerace grafickou kartou a knihovna WebGL\footnotemark[1]
+    \item pokročilejší podpora mobilních zařízení
 \end{itemize}
+
+\footnotetext[1]{\textit{Web-based Graphics Library} -- jedná se o náhradu platformy Adobe Flash, která umožňuje integraci animací a multimediálního obsahu do webových stránek. WebGL využívá JavaScript, čímž odpadá nutnost instalace dodatečného softwaru.}
 
 \section{CSS}
 \label{sec:css}

@@ -31,7 +31,7 @@ Ke každé závěrečné práci se smí přihlásit pouze jeden student. Systém
     \item Studenta přihlášeného k práci
     \item Téma, ze kterého byla práce vypsána
     \item Univerzitního vedoucího práce
-    \item Typ závěrečné práce -- bakalářka nebo diplomka
+    \item Typ závěrečné práce -- bakalářská nebo diplomová práce
     \item Stav závěrečné práce -- přihlášená, dokončená, neúspěšná a odložená
 \end{itemize}
 
@@ -87,7 +87,7 @@ Poslední layout je speciálně navržený pro formuláře. Obsahuje pouze nejnu
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/main-layout.png}
-    \caption{Drátěný model profilu zadání bakalářské nebo diplomové práce.}
+    \caption{Výsledný drátěný model -- profil diplomové práce.}
     \label{img:layout1}
 \end{figure}
 
@@ -148,30 +148,142 @@ V grafickém návrhu používám osm stupňů šedi a dva stupně červené barv
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/design.png}
-    \caption{Výsledný grafický návrh -- profil bakalářské práce.}
+    \caption{Výsledný grafický návrh -- profil diplomové práce.}
     \label{img:design}
 \end{figure}
 
-\section{Kódování šablon}
+\section{Použité webové technologie}
 
-Hlavní funkce systému jsou napsané v programovacím jazyce Groovy za použití platformy Grails. Výchozí jazyk této platformy pro popis prezentační vrstvy systému je GSP (\textit{Groovy Server Pages}), což je jazyk značně inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů. Syntaxe GSP vychází z XML, nejedná se však o XML validní dokumenty.
+Prezentační vrstva systému využívá následující technologie, knihovny a webové rámce---
 
-Dále jsem v systému použil Twitter Bootstrap, díky kterému je návrh jednotlivých HTML dokumentů konzistentní a lépe udržovatelný. Zároveň je tak docíleno vyšší podpory webovými prohlížeči, přičemž jsou dodržovány osvědčené postupy a doporučení.
-
-Prezenční vrstva systému využívá následující technologie, knihovny a webové rámce:
-
-\begin{itemize}
+\begin{enumerate}
     \item HTML~5 (viz kapitola~\ref{sec:html})
     \item CSS~3 (viz kapitola~\ref{sec:css})
     \item LESS (viz kapitola~\ref{sec:less})
     \item JavaScript\footnotemark[1]
     \item Twitter Bootstrap (viz kapitola~\ref{sec:bootstrap})
-    \item Groovy Server Pages
-\end{itemize}
+    \item GSP (viz kapitola~\ref{subsec:gsp})
+\end{enumerate}
 
-Zatímco ve čtvrté kapitole jsem se věnoval specifikaci těchto technologií, nyní se zaměřím na jejich použití v našem systému. Vzhledem k zaměření systému však není potenciál některých technologií plně využit (jde především o HTML~5 standard).
+Zatímco ve čtvrté kapitole jsem se věnoval specifikaci několika výše jmenovaných technologií, nyní se zaměřím na jejich použití v našem systému. Vzhledem k zaměření systému však není potenciál všech použitých technologií plně využit (jde zejména o HTML~5 standard).
 
 \footnotetext[1]{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}
 
-\section{HTML stránky}
-\section{Kaskádové styly}
+\subsection{HTML~5}
+
+Velká část HTML~5 je v současné době všemi moderními prohlížeči podporována a je tak již možné mnoho novinek volně používat. Aplikace implementuje v zásadě jen některé nové HTML atributy a sémantické elementy. V budoucnu je však možné aplikaci rozšířit o další novinky a vylepšení, které tento nový standard přináší.
+
+\subsection{CSS~3}
+
+Nové vlastnosti a selektory využívám v systému hojně, neboť umožňují jednak velkou část webu vytvořit bez použití rastrových obrázků, dále zvyšují čistotu kódu a pomáhají zachovat jednoduchost stránky z hlediska její struktury.
+
+Mezi jednu z předních výhod CSS~3 patří revoluce v podobě pravidla \texttt{@font-face}, která umožňuje definici vlastních fontů. Tímto je zároveň umožněno použití sady piktogramů ve formě fontu, díky čemuž odpadá nutnost práce s rastrovou sadou ikonek. Tyto možnosti uplatňuji užitím fontu Awesome jako sady piktogramů a fontu Museo Slab pro čtyři úrovně nadpisů.
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+/* Definice fontu v CSS */
+.icon-rss:before { content: "\f09e"; }
+    \end{lstlisting}
+    \begin{lstlisting}
+<!-- Pouziti v HTML dokumentu -->
+<a id="news" href="${createLink(uri: '/rss')}">
+    <i class="icon-rss"></i>
+    <g:message code="feed.news.label"/>
+</a>
+    \end{lstlisting}
+    \caption{Použití fontu Awesome -- odkaz na RSS čtečku.}
+    \label{example:awesome}
+\end{example}
+
+\subsection{Twitter Bootstrap}
+
+Díky Twitter Bootstrapu je návrh jednotlivých HTML dokumentů konzistentní a lépe udržovatelný. Zároveň je tak docíleno vyšší podpory webovými prohlížeči, přičemž jsou dodržovány osvědčené postupy a doporučení.
+
+Použití Bootstrapu mě zbavilo nutnosti trávit nadměrné množství času optimalizací aplikace pro webové prohlížeče, zároveň mi rámec nabídl mnoho nástrojů a předdefinovaných komponent, které urychlili vývoj prezentační vrstvy aplikace.
+
+Vzhledem k tomu, že se grafický návrh vyvíjeného systému značně liší od vizuálního stylu Bootstrapu, bylo potřeba některé součásti upravovat. Tento úmysl je běžný pro mnoho aplikací, které používají nějaký webový rámec pro tvorbu uživatelského rozhraní. S tímto problémem se lze vypořádat částečným přepsáním zdrojového kódu webového rámce podle vlastních potřeb. Takový postup však není doporučován, neboť znemožňuje rámec později aktualizovat. Rozhodl jsem se tedy pro řešení, které znázorňuje adresářová struktura na obrázku \ref{fig:tree}, kde---
+
+\begin{itemize}
+    \item adresář \texttt{bootstrap} obsahuje zdrojové soubory Twitter Bootstrapu
+    \item soubor \texttt{bootstrap.less} obsahuje importy použitých komponent Bootstrapu a vlastní definované CSS styly, jež musí být umístěny hierarchicky na konci souboru
+    \item soubor \texttt{variables.less} je určený pro deklaraci proměnných
+    \item soubor \texttt{main.less} slouží pro definici vlastních stylů
+\end{itemize}
+
+
+\begin{figure}
+    \dirtree{%
+    .1 less.
+    .2 bootstrap.
+    .3 alerts.less.
+    .3 ....
+    .2 bootstrap.less.
+    .2 variables.less.
+    .2 main.less.
+    .2 ....
+    }
+    \caption{Stromová struktura adresáře s CSS styly.}
+    \label{fig:tree}
+\end{figure}
+
+\subsection{LESS}
+
+Použití preprocesoru LESS zpřístupnilo mnoho konstrukcí, které v čistém CSS z důvodu zachování formální čistoty jazyka chybí. Díky LESS je stylopis přehlednější, kratší a organizovanější. Chceme-li například změnit barvu odkazů nebo odstranit podtržení, stačí tak učinit na jediném místě v kódu.
+
+Pro eliminaci neúmyslného přepsání CSS stylů definovaných Bootstrapem jsem v systému zavedl konvenci pro pojmenování vlastních tříd a identifikátorů. Každá vlastní třída obsahuje prefix \texttt{tms-}, tedy například definované tlačítka jsou v systému označovány třídou \texttt{.tms-btn}, naopak v Bootstrapu pouze \texttt{.btn}.
+
+Vlastní CSS styly jsou definovány v souborech---
+
+\begin{itemize}
+    \item \texttt{main.less} -- určený pro formátování selektorů, tříd, identifikátorů a definici mixinů, zatímco proměnné jsou deklarovány v souboru přejatém od Bootstrapu (\texttt{variables.less})
+    \item \texttt{fonts.less} -- definice fontů používaných v systému
+    \item \texttt{taggy.less} -- CSS styly přídavného modulu pro podporu tagů
+    \item \texttt{fineuploader.less} -- CSS styly přídavného modulu pro podporu nahrávání souborů
+\end{itemize}
+
+\subsection{GSP}
+\label{subsec:gsp}
+
+Hlavní funkce systému jsou napsané v programovacím jazyce Groovy za použití platformy Grails. Výchozí jazyk této platformy určený pro popis prezentační vrstvy systému je GSP (\textit{Groovy Server Pages}), což je jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů. Přestože syntaxe GSP vychází z XML, nejedná se o XML validní stránky.
+
+GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu mezi bloky \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V aplikaci používáme druhý způsob, mezi jehož největší nevýhodu patří relativně vysoká nepřehlednost.
+
+V ukázce \ref{example:parent} lze vidět příklad GSP stránky. Tato stránka slouží jako layout pro \uv{potomky} (t.j. stránky, které takto definovaný dokument rozšiřují).
+
+\begin{example}
+    \centering
+    \begin{lstlisting}
+<html>
+  <head>
+    <title><g:layoutTitle /></title>
+    <g:layoutHead />
+  </head>
+  <body>
+    <div class="span9">
+        <g:layoutBody />
+    </div>
+  </body>
+</html>
+    \end{lstlisting}
+    \caption{Rodič -- \texttt{light.gsp}.}
+    \label{example:parent}
+\end{example}
+
+Každý potomek je definován uvedením rodiče v meta elementu (jako v ukázce \ref{example:child}), přičemž na místo elementu \texttt{<g:layoutBody />} je vykresleno tělo potomka, \texttt{<g:layoutHead />} je nahrazen hlavičkou a \texttt{<g:layoutTitle />} titulkem potomka.
+\begin{example}
+    \centering
+    \begin{lstlisting}
+<html>
+  <head>
+    <meta name="layout" content="light">
+    ...
+  </head>
+  <body>
+    ...
+  </bodu>
+</html>
+    \end{lstlisting}
+    \caption{Potomek stránky \texttt{light.gsp}.}
+    \label{example:child}
+\end{example}
