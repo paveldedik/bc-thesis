@@ -59,11 +59,9 @@ Příklady stylovacích jazyků---
 \section{HTML}
 \label{sec:html}
 
-HTML se vyvíjí již od roku 1990, od roku 1995 jako W3C standard\footnotemark[1], během této doby prošlo mimořádným vývojem, díky kterému dnes mohou autoři vytvářet komplexní stránky obsahující audio, video nebo 3D animace.
+HTML se vyvíjí již od roku 1990, od roku 1995 jako W3C standard, během této doby prošlo mimořádným vývojem, díky kterému dnes mohou autoři vytvářet komplexní stránky obsahující audio, video nebo 3D animace.
 
 Každá HTML stránka musí začínat deklarací doctypu, který stanovuje verzi HTML dokumentu. Následuje kořenový element \texttt{<html>}, který uzavírá zbytek dokumentu. Uvnitř kořenového elementu musí být deklarován element \texttt{<head>}, který slouží pro popis dokumentu (typicky zahrnuje například CSS styly) a element \texttt{<body>}, který je určený pro definici viditelného obsahu (Příklad \ref{example:html}).
-
-\footnotetext[1]{W3C (\textit{World Wide Web Consortium}) je mezinárodní konsorcium, které se stará o vývoj webových standardů.}
 
 \begin{example}
     \centering
@@ -85,8 +83,9 @@ HTML~5 je zcela nový připravovaný W3C standard pro tvorbu webových stránek,
 \begin{itemize}
     \item zjednodušený doctype -- \texttt{<!DOCTYPE html>}
     \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>}
-    \item podpora vektorových grafických obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>}
-    \item sémanticky oddělená hlavička a patička stránky -- elementy \texttt{<header>} a \texttt{<footer>}
+    \item podpora vektorových obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>}
+    \item nové sémantické elementy -- například \texttt{<header>}, \texttt{<footer>} a \texttt{<nav>}
+    \item nové HTML atributy -- například \texttt{placeholder} nebo \texttt{autocomplete}
     \item podpora akcelerace grafickou kartou a knihovna WebGL\footnotemark[1]
     \item pokročilejší podpora mobilních zařízení
 \end{itemize}
@@ -112,8 +111,8 @@ CSS~3 je nová verze W3C standardu pro CSS. Přesto, že se stále jedná o nedo
     \item vlastnost \texttt{border-radius} -- nastavuje rádius rámečku
     \item vlastnost \texttt{box-shadow} -- nastavuje stín objektu
     \item vlastnost \texttt{transition} -- přidává efekt animace při změně stylu
-    \item selektor \texttt{:first-of-type} a \texttt{:last-of-type} -- označí každého prvního (resp. posledního) potomka daného typu
-    \item selektor \texttt{:nth-child(n)} -- označí každý HTML element, který je $n$-tým potomkem rodičovského elementu
+    \item selektor \texttt{:first-of-type} a \texttt{:last-of-type} -- označí každého prvního (resp. posledního) potomka selektovaného elementu, třídy nebo identifikátoru
+    \item selektor \texttt{:nth-child(n)} -- označí každý HTML element, který je $n$-tým potomkem rodičovského elementu, třídy nebo identifikátoru
     \item selektor \texttt{[attr*=value]} -- označí každý element, jehož atribut \texttt{attr} obsahuje podřetězec \texttt{value}
     \item pravidlo \texttt{@font-face} -- umožňuje použití libovolných fontů (viz příklad \ref{example:font-face}.)
 \end{itemize}
@@ -174,7 +173,7 @@ CSS~3 je nová verze W3C standardu pro CSS. Přesto, že se stále jedná o nedo
 
 Twitter Bootstrap (dále jen Bootstrap) je sada CSS stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistenci mezi vývojáři v rámci společnosti Twitter. V roce 2011 byl Bootstrap uvolněn jako open-source projekt a nyní se jedná o jeden z nejpopulárnějších webových rámců.
 
-Větší část Bootstrapu je napsaná v LESS, primárně je však dostupná zkompilovaná verze v CSS. Bootstrap má relativně vyspělou podporu technologií HTML5 a CSS3, vyžaduje tedy deklaraci HTML5 doctypu. JavaScriptové komponenty jsou postavené na knihovně jQuery\footnotemark[2]. Některé nástroje a komponenty Bootstrapu jsou popsány v následujících odstavcích.
+Větší část Bootstrapu je napsaná v LESS, primárně je však dostupná zkompilovaná verze v CSS. Bootstrap má relativně vyspělou podporu technologií HTML~5 a CSS~3, vyžaduje tedy deklaraci HTML~5 doctypu. JavaScriptové komponenty jsou postavené na knihovně jQuery\footnotemark[2]. Některé nástroje a komponenty Bootstrapu jsou popsány v následujících odstavcích.
 
 \footnotetext[2]{jQuery je open-source JavaScriptová knihovna, určená především pro manipulaci s HTML dokumenty.}
 
@@ -190,8 +189,12 @@ Třída \texttt{.row} slouží pouze pro zaobalení dědičných elementů (viz 
     \centering
     \begin{lstlisting}
 <div class="row">
-  <div class="span9">...</div>
-  <div class="span3">...</div>
+  <div class="span9">
+    ...
+  </div>
+  <div class="span3">
+    ...
+  </div>
 </div>
     \end{lstlisting}
     \caption{Základní layout stránky rozdělený na dva sloupce.}
