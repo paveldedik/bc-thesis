@@ -17,10 +17,19 @@
 \newfloat{example}{H}{lop}
 \floatname{example}{Příklad}
 
+\newfloat{demo}{H}{lop}
+\floatname{demo}{Ukázka}
+
 \lstdefinelanguage{css}{
     sensitive=false,
     morecomment=[l]{//},
     morecomment=[s]{/*}{*/},
+    morestring=[b]",
+}
+
+\lstdefinelanguage{html5}{
+    sensitive=false,
+    morecomment=[s]{<!--}{-->},
     morestring=[b]",
 }
 
@@ -40,6 +49,7 @@
 \thesisfaculty{fi}
 \thesisyear{jaro 2013}
 \thesislang{cs}
+\thesisadvisor{Mgr. Filip Nguyen}
 
 \setlength{\parindent}{0,5cm}
 
@@ -50,6 +60,7 @@
 
 \begin{ThesisDeclaration}
 \DeclarationText
+\AdvisorName
 \end{ThesisDeclaration}
 
 \MainMatter

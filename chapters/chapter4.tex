@@ -1,88 +1,87 @@
 \chapter{Informační systém pro správu závěrečných prací}
 
-Téma bakalářská práce se zaměřuje na analýzu, návrh a~implementaci informačního systému pro správu bakalářských a~diplomových prací. Informační systém slouží především firmě Red Hat jako nástroj pro zadání, kontrolu a~schvalování závěrečných prací vypsaných na partnerských fakultách. Systém zároveň poskytuje rozhraní pro studenty, kteří se mohou přihlašovat k~tématům, komentovat jednotlivá témata a~závěrečné práce. Dále k~systému přistupuje vedoucí, který schvaluje přihlášení k~tématům a~spravuje stav závěrečných prací. Systém je veřejný a~návštěvníci tak mají možnost procházet jednotlivá témata a~závěrečné práce, dále se mohou registrovat na základě fakultního e-mailu. Hlavní strana systému slouží jako přehled nejnovějších aktivit v~systému.
+Úkolem praktická části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem vytvořit nástroj pro zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red Hat.
 
-Mým úkolem je vytvořit grafickou podobu uživatelského rozhraní a tento návrh integrovat do systému.
+Tvorbu praktické části práce jsem rozdělil do tří částí. Cílem první čísti bylo vytvořit drátěný model aplikace, který pomohl blíže specifikovat nástroje systému. Ve druhá části jsem se pustil do tvorby grafického návrhu, jehož úkolem bylo představit vizuální podobu aplikace. Úkolem poslední části bylo integrovat grafický návrh do implementace informačního systému.
 
 \section{Popis požadavků na systém}
 
-Systém eviduje---
+Informační systém poskytuje rozhraní pro studenty, kteří se mohou přihlašovat k tématům, komentovat jednotlivá témata nebo závěrečné práce. Dále k systému přistupují vedoucí, kteří mají ve správě témata, závěrečné práce a mohou schvalovat přihlášky studentů přihlášených k tématům. Systém poskytuje rozhraní i pro návštěvníky, kteří mohou procházet jednotlivá témata a závěrečné práce. Studenti partnerských fakult se mohou zaregistrovat na základě fakultního e-mailu.
+
+Systém eviduje témata, závěrečné práce, uživatele, univerzity a přihlášky. Jednotlivá témata popisují cíl práce, mohou být vypsány pro více studentů. Systém umožňuje témata vypisovat, upravovat a mazat. Témata evidují:
 
 \begin{itemize}
-    \item Témata
-    \item Závěrečné práce
-    \item Uživatele
-    \item Univerzity
-    \item Přihlášky
+    \item seznam přihlášených studentů;
+    \item seznam univerzit, na kterých je téma vypsáno;
+    \item seznam externích a univerzitních vedoucích;
+    \item typ tématu -- bakalářská nebo dplomová práce;
+    \item seznam závěrečných prací, které byly na základě tématu vypsány.
 \end{itemize}
 
-Témata popisují cíl práce, mohou být vypsány pro více studentů. Systém umožňuje témata vypisovat, editovat a mazat. Témata evidují---
+Ke každé závěrečné práci se smí přihlásit pouze jeden student. Systém umožňuje práce vytvářet (na základě tématu), upravovat a mazat. Každá závěrečná práce eviduje:
 
 \begin{itemize}
-    \item Seznam přihlášených studentů
-    \item Seznam univerzit, na kterých je téma vypsáno
-    \item Seznam vedoucích
-    \item Seznam závěrečných prací, které byly na základě tématu vypsány
+    \item studenta, který je k práci přihlášen;
+    \item téma, ze kterého byla práce vypsána;
+    \item univerzitního vedoucího práce;
+    \item univerzitu, na které je práce vypsána;
+    \item typ závěrečné práce -- bakalářská nebo diplomová práce;
+    \item stav závěrečné práce -- přihlášená, dokončená, neúspěšná a odložená.
 \end{itemize}
 
-Ke každé závěrečné práci se smí přihlásit pouze jeden student. Systém umožňuje práce vytvářet (na základě tématu), editovat a mazat. Každá závěrečná práce eviduje---
+V systému existuje několik uživatelských rolí, které se liší v přístupových právech. Každý registrovaný uživatel je automaticky student. Systém eviduje následující uživatelské role:
 
 \begin{itemize}
-    \item Studenta přihlášeného k práci
-    \item Téma, ze kterého byla práce vypsána
-    \item Univerzitního vedoucího práce
-    \item Typ závěrečné práce -- bakalářská nebo diplomová práce
-    \item Stav závěrečné práce -- přihlášená, dokončená, neúspěšná a odložená
-\end{itemize}
-
-V systému tak existuje několik uživatelských rolí, které se liší v přístupových právech. Každý registrovaný uživatel je automaticky student. Práva uživatelských rolí---
-
-\begin{itemize}
-    \item Návštěvníci -- mohou procházet jednotlivá témata, závěrečné práce a registrovat se dle fakultního e-mailu.
-    \item Studenti -- mohou se přihlašovat k tématům, spravovat vlastní závěrečné práce a diskutovat k jednotlivým tématům a závěrečným pracím.
-    \item Univerzitní vedoucí -- jedná se o vedoucího na dané univerzitě, může vytvářet závěrečné práce, schvaluje přihlášky a má právo přispívat v diskuzích.
-    \item Vedoucí -- na rozdíl od univerzitního vedoucího navíc vytváří témata závěrečných prací.
-    \item Správce -- může spravovat většinu obsahu, přidávat univerzity a uživatele.
+    \item Návštěvník -- má právo procházet jednotlivá témata, závěrečné práce a registrovat se dle fakultního e-mailu.
+    \item Student -- může se přihlásit k povoleným tématům, spravuje vlastní závěrečné práce, dále má možnost komentovat jednotlivé témata a závěrečné práce.
+    \item Univerzitní vedoucí -- jedná se o vedoucího na dané univerzitě, může vytvářet závěrečné práce, schvaluje přihlášky k jednotlivým tématům.
+    \item Vedoucí -- na rozdíl od univerzitního vedoucího patří pod jeho správu i tvorba zadání témat.
+    \item Správce -- může spravovat většinu obsahu, přidávat do systému univerzity a uživatele.
 \end{itemize}
 
 \section{Analýza cílové skupiny}
 
-Cílová skupina uživatelů přistupujících k systému je velmi úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen---jedná se o témata z IT oboru. Příklady některých univerzit, které jsou v systému registrovány---
+Cílová skupina uživatelů pracující se systémem je velice úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen -- jedná se o témata z IT oboru. Příklady některých univerzit, které jsou v systému registrovány:
 
 \begin{itemize}
-    \item Masarykova univerzita
-    \item Vysoké učení technické v Brně
-    \item České vysoké učení technické v Praze
+    \item Masarykova univerzita,
+    \item Vysoké učení technické v Brně,
+    \item České vysoké učení technické v Praze.
 \end{itemize}
 
-Systém je určen především pro studenty v posledních ročnících bakalářského nebo magisterského studia a jejich vedoucí.
+Informační systém je určen především pro studenty v posledních ročnících bakalářského nebo magisterského studia a jejich vedoucí. Tyto skutečnosti mi dávají větší \uv{svobodu} při volbě technologií pro integraci grafického návrhu.
 
 \section{Základní layout}
 
-Rozhodl jsem se používat tři základní layouty stránky, přičemž dva se liší pouze prohozením postranního panelu a obsahové části. Primární layout (viz obrázek \ref{img:layout1}) tvoří---
+Rozhodl jsem se vytvořit a používat tři základní layouty pro aplikaci, přičemž dva se liší pouze prohozením postranního panelu a obsahové části. Primární layout (obrázek \ref{img:layout1}) tvoří:
 
 \begin{itemize}
     \item Navigační panel -- nachází se v záhlaví stránky a obsahuje hlavní informace o přihlášeném uživateli, vyhledávač a logotyp.
     \item Navigační menu -- slouží jako primární navigace na stránce.
-    \item Levý sloupec s hlavním obsahem -- je určený pro seznam témat, závěrečných prací a jejich popis. Dále může obsahovat odevzdávárnu souborů a komentáře.
-    \item Pravý sloupec s vedlejším obsahem -- slouží jako přehled informací o daném tématu nebo závěrečné práci. Dále může obsahovat nástroje pro správu témat (popř. závěrečných prací) nebo filtry.
+    \item Levý sloupec -- je určen pro seznam a popis témat, závěrečných prací, jejich primární popis i anotaci. Dále může obsahovat odevzdávárnu souborů a komentáře.
+    \item Pravý sloupec -- slouží jako přehled informací o daném tématu nebo dané závěrečné práci. Dále může obsahovat nástroje pro správu závěrečných prací (popř. témat) nebo filtry.
 \end{itemize}
 
-Sekundární layout představuje kostru uživatelského profilu a profilu univerzity. Na rozdíl od primárního layoutu je sloupec s vedlejším obsahem přemístěn na levou část stránky. Tvoří ho---
+Sekundární layout představuje kostru profilu uživatelů a univerzit. Na rozdíl od primárního layoutu je sloupec s vedlejším obsahem přemístěn na levou část stránky. Tvoří ho:
 
 \begin{itemize}
-    \item Navigační panel
-    \item Navigační menu
-    \item Levý sloupec s vedlejším obsahem -- obsahuje podrobnější informace o uživateli včetně profilového obrázku.
-    \item Pravý sloupec s hlavním obsahem -- slouží jako obecný přehled vedených závěrečných prací, vlastních prací a aktivity uživatele v systému.
+    \item Navigační panel a navigační menu.
+    \item Levý sloupec -- obsahuje podrobnější informace o uživateli včetně profilového obrázku.
+    \item Pravý sloupec -- slouží jako obecný přehled vedených závěrečných prací, vlastních prací a aktivity uživatele v systému.
 \end{itemize}
 
-Poslední layout je speciálně navržený pro formuláře. Obsahuje pouze nejnutnější elementy a je tvořen z jednoho sloupce---
+Poslední layout je speciálně navržený pro formuláře (např. registrační formulář nebo formulář pro vytvoření tématu). Obsahuje pouze nejnutnější elementy a je tvořen z jednoho sloupce:
 
 \begin{itemize}
     \item Navigační panel
     \item Hlavní sloupec -- určený pro formulářová pole.
 \end{itemize}
+
+V systému figuruje ještě jeden velmi odlehčený layout, který je však určen pouze pro autentizaci uživatele.
+
+Minimální šířka všech stránek je 1040$px$ -- při nižších hodnotách je uživatel nucen horizontálně skrolovat. Tuto šířku jsem zvolil s ohledem na aktuální podíl populárních rozlišení monitorů, který v současnosti z více než 90\% tvoří rozlišení větší než 1024$\times$768$px$\footnotemark[1].
+
+\footnotetext[1]{\url{http://gs.statcounter.com/\#resolution-CZ-monthly-201203-201303}}
 
 \begin{figure}[htbp]
     \centering
@@ -91,19 +90,15 @@ Poslední layout je speciálně navržený pro formuláře. Obsahuje pouze nejnu
     \label{img:layout1}
 \end{figure}
 
-Minimální šířka všech stránek je 1040$px$ -- při nižších hodnotách je uživatel nucen horizontálně skrolovat. Tuto šířku jsem zvolil s ohledem na aktuální podíl populárních rozlišení u displejů zařízení, který v současnosti z více než 90\% tvoří rozlišení větší než 1024$\times$768$px$\footnotemark[1].
-
-\footnotetext[1]{\url{http://gs.statcounter.com/\#resolution-CZ-monthly-201203-201303}}
-
 \section{Grafický návrh}
 
-Přesto, že nebyly kladeny žádné větší nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týče barevnosti.
+Přesto, že nebyly kladeny žádné nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týká barevnosti.
 
 \subsection{Písmo}
 
-Ještě relativně nedávno byly designeři při volbě písma pro webové aplikace omezeni na několik málo základních fontů, které byly ve většině případů přítomny na klientských počítačích -- například Arial, Times New Roman, Georgia nebo Courier Sans. Díky nového CSS pravidla \texttt{@font-face} je možné používat i fonty, které nejsou na klientských počítačích nainstalovány.
+Ještě relativně nedávno byly designeři při volbě písma pro webové aplikace omezeni na několik málo základních fontů, které byly přítomny na klientských počítačích -- například Arial, Times New Roman, Georgia nebo Courier Sans. Díky novému CSS~3 pravidlu \texttt{@font-face} je však toto omezení minulostí a nyní je možné používat i fonty, které nejsou na klientských počítačích nainstalovány.
 
-Již na počátku tvorby jsem se rozhodl používat pro nadpisy lineárně serifové písmo s rovnými serify\footnotemark[1]. Volba písma je značně omezená především pro nutnost podpory české znakové sady. První volbou bylo písmo Sanchez\footnotemark[2], které jsem však později zavrhl z důvodu špatné optimalizace pro webové prohlížeče. Nakonec jsem zvolil písmo Museo Slab\footnotemark[3], které navrhl designer Jan Buivenga.
+Již na počátku tvorby jsem se rozhodl používat pro nadpisy lineárně serifové písmo s rovnými serify\footnotemark[1]. Volba písma byla poměrně omezená především pro nutnost podpory české znakové sady. První volbou bylo písmo Sanchez\footnotemark[2] od designéra Daniela Hernándeze, které jsem však později zavrhl z důvodu špatné optimalizace pro webové prohlížeče. Nakonec jsem zvolil písmo Museo Slab\footnotemark[3], které navrhl designér Jan Buivenga.
 
 \footnotetext[1]{Viz klasifikace písma podle Jana Solpery.}
 \footnotetext[2]{\url{http://www.myfonts.com/fonts/latinotype/sanchez/}}
@@ -120,21 +115,21 @@ Jako primární písmo jsem se rozhodl použít velmi rozšířený Arial. Jedn�
 
 \subsection{Piktogramová řada}
 
-Jako sadu ikonek jsem zvolil Font Awesome\footnotemark[1], který byl primárně navržený pro webový rámec Twitter Bootstrap. Samotná piktogramová řada je vedena pod licencí CC BY 3.0, je tedy možné používat řadu samostatně.
+Jako sadu ikonek jsem zvolil Font Awesome\footnotemark[1], který byl primárně navržen pro integraci s webovým rámcem Twitter Bootstrapem. Samotná piktogramová řada je licencována pod CC BY 3.0, je tedy možné používat samotnou řadu odděleně.
 
 \footnotetext[1]{\url{http://fortawesome.github.io/Font-Awesome}}
 
 \subsection{Typografie}
 
-Jako základní velikost písma jsem zvolil 16$px$, díky čemuž je text dobře čitelný i na monitorech s hustším PPI. Vzhledem k větší střední výšce písma Arial jsem se rozhodl použít vyšší hodnotu řádkového prokladu, aby i rozsáhlejší části textu nepůsobily příliš sevřeně.
+Jako základní velikost písma jsem zvolil 16$px$, díky čemuž je text dobře čitelný i na monitorech s vyšším PPI. Vzhledem k větší střední výšce písma Arial jsem se rozhodl zvýšit hodnotu řádkového prokladu, aby i rozsáhlejší části textu nepůsobily příliš sevřeně.
 
-Nadpisy první až čtvrté úrovně jsou vysázeny písmem Museo Slab s maximální velikostí 34$px$, která je užita výhradně pro názvy témat a závěrečných prací.
+Nadpisy první až čtvrté úrovně jsou vysázeny písmem Museo Slab s maximální velikostí 34$px$, která je užita výhradně pro název témat a závěrečných prací.
 
-Velikost okrajů primárního sloupce s obsahem jsem se rozhodl nastavit na 30$px$, čímž je zajištěn dostatečný prostor pro jednoduchou orientaci mezi odstavci a jsou tak jasně odlišeny bloky textu.
+Jako velikost okrajů primárního sloupce s obsahem jsem se rozhodl zvolit 30$px$, čímž je zajištěn dostatečný prostor pro jednoduchou orientaci mezi odstavci a jsou tak jasně odlišeny bloky textu.
 
 \subsection{Barevnost}
 
-Vizuální styl společnosti Red Hat se orientuje v barvách bílé, černé a červené. Rozhodl jsem se použít světlejší barvy pro navození klidnějšího dojmu a snížení kontrastu, neboť příliš vysoký kontrast může působit dráždivě a není podle mě příliš vhodný pro stránky určené primárně pro správu závěrečných prací.
+Vizuální styl společnosti Red Hat se orientuje v barvách bílé, černé a červené. Rozhodl jsem se použít světlejší barvy pro navození klidnějšího dojmu a snížení kontrastu, neboť příliš vysoký kontrast může působit dráždivě a není podle mě příliš vhodný pro systém určený primárně pro správu závěrečných prací.
 
 V grafickém návrhu používám osm stupňů šedi a dva stupně červené barvy. Několik dalších barev je použito výjimečně například pro zvýraznění aktivních kategorií nebo pro systémové zprávy a upozornění.
 
@@ -152,9 +147,9 @@ V grafickém návrhu používám osm stupňů šedi a dva stupně červené barv
     \label{img:design}
 \end{figure}
 
-\section{Použité webové technologie}
+\section{Integrace návrhu}
 
-Prezentační vrstva systému využívá následující technologie, knihovny a webové rámce---
+Prezentační vrstva systému využívá následující technologie, knihovny a webové rámce:
 
 \begin{enumerate}
     \item HTML~5 (viz kapitola~\ref{sec:html})
@@ -165,125 +160,123 @@ Prezentační vrstva systému využívá následující technologie, knihovny a 
     \item GSP (viz kapitola~\ref{subsec:gsp})
 \end{enumerate}
 
-Zatímco ve čtvrté kapitole jsem se věnoval specifikaci několika výše jmenovaných technologií, nyní se zaměřím na jejich použití v našem systému. Vzhledem k zaměření systému však není potenciál všech použitých technologií plně využit (jde zejména o HTML~5 standard).
+Zatímco ve čtvrté kapitole jsem se věnoval specifikaci několika výše jmenovaných technologií, nyní se zaměřím na jejich použití v informačním systému. Vzhledem k zaměření systému však není potenciál všech použitých technologií plně využit (jde zejména o HTML~5 standard).
 
 \footnotetext[1]{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}
 
 \subsection{HTML~5}
 
-Velká část HTML~5 je v současné době všemi moderními prohlížeči podporována a je tak již možné mnoho novinek volně používat. Aplikace implementuje v zásadě jen některé nové HTML atributy a sémantické elementy. V budoucnu je však možné aplikaci rozšířit o další novinky a vylepšení, které tento nový standard přináší.
+Velká část HTML~5 je v současné době všemi moderními prohlížeči podporována a je tak již možné mnoho novinek volně používat. Aplikace implementuje v zásadě jen některé nové HTML~5 atributy a sémantické elementy. V budoucnu je však možné aplikaci rozšířit o další novinky, které tento nový standard přináší.
 
 \subsection{CSS~3}
 
 Nové vlastnosti a selektory využívám v systému hojně, neboť umožňují jednak velkou část webu vytvořit bez použití rastrových obrázků, dále zvyšují čistotu kódu a pomáhají zachovat jednoduchost stránky z hlediska její struktury.
 
-Mezi jednu z předních výhod CSS~3 patří revoluce v podobě pravidla \texttt{@font-face}, která umožňuje definici vlastních fontů. Tímto je zároveň umožněno použití sady piktogramů ve formě fontu, díky čemuž odpadá nutnost práce s rastrovou sadou ikonek. Tyto možnosti uplatňuji užitím fontu Awesome jako sady piktogramů a fontu Museo Slab pro čtyři úrovně nadpisů.
+Mezi jednu z předních výhod CSS~3 patří revoluce v podobě pravidla \texttt{@font-face}, která umožňuje definici vlastních fontů. Tímto je zároveň umožněno použití sady piktogramů ve formě fontu, díky čemuž odpadá nutnost práce s rastrovou sadou ikonek. Nové vlastnosti uplatňuji užitím fontu Awesome jako sady piktogramů a fontu Museo Slab pro čtyři úrovně nadpisů.
 
-\begin{example}
+\begin{demo}
     \centering
-    \begin{lstlisting}
+    \begin{lstlisting}[language=css]
 /* Definice fontu v CSS */
 .icon-rss:before { content: "\f09e"; }
     \end{lstlisting}
-    \begin{lstlisting}
-<!-- Pouziti v HTML dokumentu -->
-<a id="news" href="${createLink(uri: '/rss')}">
-    <i class="icon-rss"></i>
-    <g:message code="feed.news.label"/>
-</a>
+    \begin{lstlisting}[language=html5]
+<!-- Pouziti ikonky v HTML dokumentu -->
+<i class="icon-rss"></i>
     \end{lstlisting}
-    \caption{Použití fontu Awesome -- odkaz na RSS čtečku.}
-    \label{example:awesome}
-\end{example}
+    \caption{Použití fontu Awesome.}
+    \label{demo:awesome}
+\end{demo}
 
 \subsection{Twitter Bootstrap}
 
-Díky Twitter Bootstrapu je návrh jednotlivých HTML dokumentů konzistentní a lépe udržovatelný. Zároveň je tak docíleno vyšší podpory webovými prohlížeči, přičemž jsou dodržovány osvědčené postupy a doporučení.
+Díky Twitter Bootstrapu je návrh jednotlivých HTML dokumentů konzistentní a lépe udržovatelný. Zároveň je docíleno vyšší podpory Internetových prohlížečů, přičemž jsou dodržovány osvědčené postupy a doporučení.
 
-Použití Bootstrapu mě zbavilo nutnosti trávit nadměrné množství času optimalizací aplikace pro webové prohlížeče, zároveň mi rámec nabídl mnoho nástrojů a předdefinovaných komponent, které urychlili vývoj prezentační vrstvy aplikace.
+Použití Bootstrapu mě zbavilo nutnosti trávit nepřiměřené množství času optimalizací aplikace pro webové prohlížeče, zároveň mi rámec nabídl mnoho nástrojů a předdefinovaných komponent, které urychlili vývoj prezentační vrstvy aplikace.
 
-Vzhledem k tomu, že se grafický návrh vyvíjeného systému značně liší od vizuálního stylu Bootstrapu, bylo potřeba některé součásti upravovat. Tento úmysl je běžný pro mnoho aplikací, které používají nějaký webový rámec pro tvorbu uživatelského rozhraní. S tímto problémem se lze vypořádat částečným přepsáním zdrojového kódu webového rámce podle vlastních potřeb. Takový postup však není doporučován, neboť znemožňuje rámec později aktualizovat. Rozhodl jsem se tedy pro řešení, které znázorňuje adresářová struktura na obrázku \ref{fig:tree}, kde---
+Grafický návrh systému se značně liší od vizuálního stylu Bootstrapu, bylo tedy potřeba některé součásti upravovat. Stejný úmysl je běžný pro mnoho aplikací, které používají nějaký webový rámec pro tvorbu uživatelského rozhraní. S tímto problémem se lze vypořádat částečnou úpravou zdrojového kódu webového rámce podle vlastních potřeb. Takový postup však není doporučován, neboť znemožňuje rámec později aktualizovat. Rozhodl jsem se tedy pro řešení, které znázorňuje adresářová struktura na obrázku \ref{fig:tree}, kde:
 
 \begin{itemize}
-    \item adresář \texttt{bootstrap} obsahuje zdrojové soubory Twitter Bootstrapu
-    \item soubor \texttt{bootstrap.less} obsahuje importy použitých komponent Bootstrapu a vlastní definované CSS styly, jež musí být umístěny hierarchicky na konci souboru
-    \item soubor \texttt{variables.less} je určený pro deklaraci proměnných
-    \item soubor \texttt{main.less} slouží pro definici vlastních stylů
+    \item adresář \texttt{bootstrap} obsahuje zdrojové soubory Bootstrapu;
+    \item soubor \texttt{bootstrap.less} obsahuje importy použitých komponent Bootstrapu a vlastní definované kaskádové styly (vlastní definované styly musí být umístěny hierarchicky na konci souboru);
+    \item soubor \texttt{variables.less} je určen pro deklaraci proměnných;
+    \item soubor \texttt{main.less} slouží pro definici vlastních stylů.
 \end{itemize}
-
 
 \begin{figure}
     \dirtree{%
-    .1 less.
-    .2 bootstrap.
-    .3 alerts.less.
+    .1 web-app.
+    .2 less.
+    .3 bootstrap.
+    .4 alerts.less.
+    .4 ....
+    .3 bootstrap.less.
+    .3 variables.less.
+    .3 main.less.
     .3 ....
-    .2 bootstrap.less.
-    .2 variables.less.
-    .2 main.less.
-    .2 ....
     }
-    \caption{Stromová struktura adresáře s CSS styly.}
+    \caption{Stromová struktura adresáře ve kterém jsou obsaženy kaskádové styly používané v aplikaci.}
     \label{fig:tree}
 \end{figure}
 
 \subsection{LESS}
 
-Použití preprocesoru LESS zpřístupnilo mnoho konstrukcí, které v čistém CSS z důvodu zachování formální čistoty jazyka chybí. Díky LESS je stylopis přehlednější, kratší a organizovanější. Chceme-li například změnit barvu odkazů nebo odstranit podtržení, stačí tak učinit na jediném místě v kódu.
+Použití preprocesoru LESS zpřístupnilo mnoho konstrukcí, které z důvodu zachování formální čistoty jazyka v CSS chybí. Díky LESS je psaní stylů přehlednější, kratší a organizovanější. Chceme-li například změnit barvu odkazů nebo odstranit podtržení, stačí tak učinit na jediném místě v kódu.
 
-Pro eliminaci neúmyslného přepsání CSS stylů definovaných Bootstrapem jsem v systému zavedl konvenci pro pojmenování vlastních tříd a identifikátorů. Každá vlastní třída obsahuje prefix \texttt{tms-}, tedy například definované tlačítka jsou v systému označovány třídou \texttt{.tms-btn}, naopak v Bootstrapu pouze \texttt{.btn}.
+Pro eliminaci neúmyslného přepsání kaskádových stylů, které jsou definovány v Bootstrapu jsem zavedl konvenci pro pojmenování vlastních tříd a identifikátorů. Každá vlastní třída obsahuje prefix \texttt{tms-}, tedy například tlačítka jsou v systému označovány třídou \texttt{.tms-btn}, naopak v Bootstrapu pouze \texttt{.btn}.
 
-Vlastní CSS styly jsou definovány v souborech---
+Vlastní kaskádové styly jsou deklarovány v souborech:
 
 \begin{itemize}
-    \item \texttt{main.less} -- určený pro formátování selektorů, tříd, identifikátorů a definici mixinů, zatímco proměnné jsou deklarovány v souboru přejatém od Bootstrapu (\texttt{variables.less})
-    \item \texttt{fonts.less} -- definice fontů používaných v systému
-    \item \texttt{taggy.less} -- CSS styly přídavného modulu pro podporu tagů
-    \item \texttt{fineuploader.less} -- CSS styly přídavného modulu pro podporu nahrávání souborů
+    \item \texttt{main.less} -- soubor určený pro formátování elementů a definici maker, proměnné jsou deklarovány v souboru \texttt{variables.less}, který je přejatý od Bootstrapu;
+    \item \texttt{fonts.less} -- definice fontů používaných v aplikaci (daklarovány pravidlem \textit{@font-face});
+    \item \texttt{taggy.less} -- kaskádové styly přídavného modulu pro podporu štítků\footnotemark[1];
+    \item \texttt{fineuploader.less} -- kaskádové styly přídavného modulu pro podporu nahrávání souborů;
 \end{itemize}
+
+\footnotetext[1]{Štítky jsou klíčové slova, které identifikují závěrečnou práci nebo téma. Štítky jsou užitečné například při vyhledávání.}
 
 \subsection{GSP}
 \label{subsec:gsp}
 
-Hlavní funkce systému jsou napsané v programovacím jazyce Groovy za použití platformy Grails. Výchozí jazyk této platformy určený pro popis prezentační vrstvy systému je GSP (\textit{Groovy Server Pages}), což je jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů. Přestože syntaxe GSP vychází z XML, nejedná se o XML validní stránky.
+Hlavní funkce systému jsou napsány v programovacím jazyce Groovy za použití platformy Grails. Jako výchozí jazyk pro popis prezentační vrstvy aplikace používá tato platforma GSP (\textit{Groovy Server Pages}). Jedná se o jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů.
 
-GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu mezi bloky \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V aplikaci používáme druhý způsob, mezi jehož největší nevýhodu patří relativně vysoká nepřehlednost.
+GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu do bloku \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V prezentační vrstvě používám výhradně druhý způsob. Jako největší nevýhodu tohoto systému považuji jeho relativně vysokou nepřehlednost.
 
-V ukázce \ref{example:parent} lze vidět příklad GSP stránky. Tato stránka slouží jako layout pro \uv{potomky} (t.j. stránky, které takto definovaný dokument rozšiřují).
+Na ukázce \ref{demo:parent} (nahoře) lze vidět příklad GSP stránky, která slouží jako layout pro tzv. \uv{potomky} (t.j. stránky, které takto definovaný dokument rozšiřují).
 
-\begin{example}
+\begin{demo}
     \centering
-    \begin{lstlisting}
+    \begin{lstlisting}[language=html5]
+<!-- parent.gsp -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <title><g:layoutTitle /></title>
-    <g:layoutHead />
-  </head>
-  <body>
-    <div class="span9">
-        <g:layoutBody />
-    </div>
-  </body>
+    <head>
+        <title><g:layoutTitle /></title>
+        <g:layoutHead />
+    </head>
+    <body>
+        <div class="span9">
+            <g:layoutBody />
+        </div>
+    </body>
 </html>
     \end{lstlisting}
-    \caption{Rodič -- \texttt{light.gsp}.}
-    \label{example:parent}
-\end{example}
-
-Každý potomek je definován uvedením rodiče v meta elementu (jako v ukázce \ref{example:child}), přičemž na místo elementu \texttt{<g:layoutBody />} je vykresleno tělo potomka, element \texttt{<g:layoutHead />} je nahrazen hlavičkou a \texttt{<g:layoutTitle />} titulkem potomka.
-\begin{example}
-    \centering
-    \begin{lstlisting}
+    \begin{lstlisting}[language=html5]
+<!-- child.gsp -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta name="layout" content="light">
-    ...
-  </head>
-  <body>
-    ...
-  </bodu>
+    <head>
+        <meta name="layout" content="parent">
+        ...
+    </head>
+    <body>
+        ...
+    </body>
 </html>
     \end{lstlisting}
-    \caption{Potomek stránky \texttt{light.gsp}.}
-    \label{example:child}
-\end{example}
+    \caption{Rodič (nahoře) a potomek (dole).}
+    \label{demo:parent}
+\end{demo}
+
+Každý potomek je definován uvedením rodiče v hlavičce dokumentu, přičemž na místo elementu \texttt{<g:layoutBody/>} je vykresleno tělo potomka, element \texttt{<g:layoutHead/>} je nahrazen hlavičkou a \texttt{<g:layoutTitle/>} titulkem potomka.
