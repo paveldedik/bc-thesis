@@ -1,7 +1,7 @@
 \chapter{Webové technologie}
 \label{chap:languages}
 
-\textbf{Značkovací jazyky} (anglicky \textit{Markup languages}) jsou formální jazyky, které umožňují v rámci rozšíření textu v přirozeném jazyce syntakticky rozlišit jednotlivé konstrukce pro vymezení struktury textu a jeho významu; dále umožňují ukládat například informace o původu, obsahu a autorských právech dokumentu \cite{modern-markup}.
+\textbf{Značkovací jazyky} (anglicky \textit{Markup languages}) jsou formální jazyky, které umožňují v rámci rozšíření textu v přirozeném jazyce syntakticky rozlišit jednotlivé konstrukce pro vymezení struktury textu a jeho významu; dále umožňují ukládat například informace o původu, obsahu a autorských právech dokumentu \cite{14} \cite{16}.
 
 Příklady nejrozšířenějších značkovacích jazyků:
 
@@ -43,7 +43,7 @@ Příklady nejrozšířenějších značkovacích jazyků:
     \label{example:json}
 \end{example}
 
-\textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu, význam a vizuální podobu XML nebo HTML dokumentů. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku).
+\textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu, význam a vizuální podobu XML nebo HTML dokumentů. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku) \cite{16}.
 
 Příklady stylovacích jazyků:
 
@@ -76,7 +76,7 @@ Každá HTML stránka musí začínat deklarací \textit{doctypu}, který stanov
 
 \subsection{HTML~5}
 
-HTML~5 je zcela nový W3C standard pro tvorbu webových stránek, který nahrazuje více než deset let starý standard HTML~4.01. Ačkoliv je tento nový standard stále ve fázi \textit{Candidate Recommendation} (zkráceně CR), je webovými prohlížeči široce podporován. Mezi některé nové nástroje a vylepšení patří:
+HTML~5 je zcela nový W3C standard pro tvorbu webových stránek, který nahrazuje více než deset let starý standard HTML~4.01. Ačkoliv je tento nový standard stále ve fázi \textit{Candidate Recommendation} (zkráceně CR) \cite{17}, je webovými prohlížeči široce podporován. Mezi některé nové nástroje a vylepšení patří:
 
 \begin{itemize}
     \item zjednodušený doctype -- \texttt{<!DOCTYPE html>}
@@ -133,7 +133,7 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
 \section{LESS}
 \label{sec:less}
 
-Úkolem LESS je zredukovat opakující se části kódu, zpřehlednit a usnadnit psaní kaskádových stylů. LESS je \textit{preprocesor}, který zavádí do CSS některé vlastnosti známé z jiných programovacích jazyků jako jsou proměnné, funkce nebo makra (mixiny). Soubor LESS lze překompilovat na CSS jak na straně klienta (prostřednictvím JavaScriptu), tak na straně serveru (s pomocí Ruby, Pythonu a dalších jazyků).
+Úkolem LESS je zredukovat opakující se části kódu, zpřehlednit a usnadnit psaní kaskádových stylů. LESS je \textit{preprocesor}, který zavádí do CSS některé vlastnosti známé z jiných programovacích jazyků jako jsou proměnné, funkce nebo makra (mixiny). Soubor LESS lze překompilovat na CSS jak na straně klienta (prostřednictvím JavaScriptu), tak na straně serveru (s pomocí Ruby, Pythonu a dalších jazyků) \cite{18}.
 
 \begin{example}
     \centering
@@ -166,13 +166,13 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
 \section{Twitter Bootstrap}
 \label{sec:bootstrap}
 
-Twitter Bootstrap (dále jen Bootstrap) je sada kaskádových stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistence mezi vývojáři ve společnosti Twitter\footnote{Twitter je sociální síť, která umožňuje jeho uživatelům posílat a číst krátké textové zprávy do 140 znaků (tzv. \textit{tweety}).}. V roce 2011 byl Bootstrap uvolněn jako open-source\footnote{Open-source, neboli otevřený software je typ softwaru, jehož zdrojový kód je přístupný jak technicky tak licenčně.} projekt a nyní se jedná o nejpopulárnější webový rámec na GitHubu\footnote{GitHub je webová služba určená pro distribuovaný vývoj softwaru.}.
+Twitter Bootstrap (dále jen Bootstrap) je sada kaskádových stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistence mezi vývojáři ve společnosti Twitter\footnote{Twitter je sociální síť, která umožňuje jeho uživatelům posílat a číst krátké textové zprávy do 140 znaků (tzv. \textit{tweety}).}. V roce 2011 byl Bootstrap uvolněn jako open-source\footnote{Open-source, neboli otevřený software je typ softwaru, jehož zdrojový kód je přístupný jak technicky tak licenčně.} projekt a nyní se jedná o nejpopulárnější webový rámec na GitHubu\footnote{GitHub je webová služba určená pro distribuovaný vývoj softwaru.} \cite{19}.
 
 Bootstrap má relativně vyspělou podporu technologií HTML~5 a CSS~3. Větší část Bootstrapu je napsaná v preprocesoru LESS, primárně je však dostupná zkompilovaná verze v CSS. JavaScriptové komponenty jsou postavené na knihovně jQuery\footnote{jQuery je JavaScriptová knihovna primárně určená pro dynamické zpracování HTML dokumentů.}.
 
 \subsection{Grid systém a layout}
 
-Grid systém rozděluje horizontální a vertikální prostor webové stránky na individuální části, kde může být umístěn text, nadpisy, obrázky nebo reklamní elementy. Výchozí grid systém Bootstrapu je rozdělen na 12 sloupců s šířkou 940$px$ pro fixní layout.
+Grid systém rozděluje horizontální a vertikální prostor webové stránky na individuální části, kde může být umístěn text, nadpisy, obrázky nebo reklamní elementy. Výchozí grid systém Bootstrapu je rozdělen na 12 sloupců s šířkou 940$px$ pro fixní layout \cite{19}.
 
 Pro vytvoření základního layoutu HTML stránky jsou v Bootstrapu definované třídy \texttt{.spanm} a \texttt{.row}, kde $m$ je proměnná definující šířku bloku. Šířku každého bloku \texttt{.spanm} lze vypočítat ze vzorce:
 
@@ -196,13 +196,13 @@ Pro tvorbu komplexnějšího layoutu slouží třídy \texttt{.offsetm}, které 
 
 \subsection{Responzivní design}
 
-Responzivní design je typ dokumentu, který reaguje na své prostředí \cite{responsive-design}. Jedná se o metodu, díky které lze přizpůsobit obsah HTML stránky podle šířky displeje zařízení. Tato technika je v posledních letech populární především díky oblíbenosti mobilních zařízení, nevýhodou je nutnost přenášení vyššího objemu dat mezi klientem a serverem.
+Responzivní design je typ dokumentu, který reaguje na své prostředí. Jedná se o metodu, díky které lze přizpůsobit obsah HTML stránky podle šířky displeje zařízení. Tato technika je v posledních letech populární především díky oblíbenosti mobilních zařízení, nevýhodou je nutnost přenášení vyššího objemu dat mezi klientem a serverem \cite{6} \cite{15} \cite{19}.
 
 V Bootstrapu lze povolit responzivní design deklarací příslušného CSS stylu a meta elementu v hlavičce HTML dokumentu. Implicitně se responzivní layout umí \uv{přizpůsobit} šesti úrovním velikosti displejů.
 
 \subsection{Typografie}
 
-Pro úpravu typografie v Bootstrapu je určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnávání textu jsou předdefinované třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right}.
+Pro úpravu typografie v Bootstrapu je určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnávání textu jsou předdefinované třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right} \cite{19}.
 
 \begin{example}
     \centering
@@ -218,7 +218,7 @@ Pro úpravu typografie v Bootstrapu je určen soubor \texttt{variables.less}, kd
 
 \subsection{Formuláře}
 
-Formuláře lze konstruovat dvěma způsoby. První způsob je omezen na použití elementu \texttt{<form>}, který lze používat libovolným způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} definován na elementu \texttt{<form>}; dále je nutné, aby byla u jednotlivých elementů definována správná třída (příklad \ref{example:form}).
+Formuláře lze konstruovat dvěma způsoby. První způsob je omezen na použití elementu \texttt{<form>}, který lze používat libovolným způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} definován na elementu \texttt{<form>}; dále je nutné, aby byla u jednotlivých elementů definována správná třída (příklad \ref{example:form}) \cite{19}.
 
 \begin{example}
     \centering
@@ -237,13 +237,11 @@ Formuláře lze konstruovat dvěma způsoby. První způsob je omezen na použit
 
 \subsection{Tlačítka}
 
-Styly tlačítek lze aplikovat použitím třídy \texttt{.btn}, typicky na element \texttt{<a>} nebo \texttt{<button>}. Pro sémantické rozlišení akce tlačítka jsou v Bootstrapu určené třídy \texttt{.btn-pirmary}, \texttt{.btn-info}, \texttt{.btn-success}, \texttt{.btn-link}, \texttt{.btn-danger} a \texttt{.btn-warning}, které musí být aplikovány zároveň s třídou \texttt{.btn}.
-
-Pro změnu velikosti tlačítek slouží v Bootstrapu třídy \texttt{.btn-large}, \texttt{.btn-small} a \texttt{.btn-mini}.
+Styly tlačítek lze aplikovat použitím třídy \texttt{.btn}, typicky na element \texttt{<a>} nebo \texttt{<button>}. Pro sémantické rozlišení akce tlačítka jsou v Bootstrapu určené třídy \texttt{.btn-pirmary}, \texttt{.btn-info}, \texttt{.btn-success}, \texttt{.btn-link}, \texttt{.btn-danger} a \texttt{.btn-warning}, které musí být aplikovány zároveň s třídou \texttt{.btn}. V Bootstrapu jsou dále přítomny třídy \texttt{.btn-mini}, \texttt{.btn-small} a \texttt{.btn-large}, které stanovují velikost tlačítka \cite{19}.
 
 \subsection{Navigační panel}
 
-Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném počátku stránky.
+Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném počátku stránky \cite{19}.
 
 \begin{example}
     \centering
@@ -258,18 +256,21 @@ Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby 
 
 \subsection{Modální okna}
 
-Modální okna jsou JavaScriptem vykreslené dialogy určené pro zobrazení doplňkových informací nebo komponent stránky (například formulářů), které jsou při běžné práci neviditelné.
+Modální okna jsou JavaScriptem vykreslené dialogy určené pro zobrazení doplňkových informací nebo komponent stránky (například formulářů), které jsou při běžné práci neviditelné \cite{19}.
 
 \begin{example}
     \centering
-    \begin{lstlisting}
+    \begin{lstlisting}[language=html5]
+<!-- trigger -->
 <a href="#modal" data-toggle="modal">Open Modal</a>
+
+<!-- modalni okno -->
 <div id="modal" class="modal hide fade">
     <div class="modal-header"> ... </div>
     <div class="modal-body"> ... </div>
     <div class="modal-footer"> ... </div>
 </div>
     \end{lstlisting}
-    \caption{Modální okno.}
+    \caption{Použití modálního okna.}
     \label{example:form}
 \end{example}

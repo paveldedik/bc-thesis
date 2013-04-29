@@ -227,7 +227,7 @@ Vlastní kaskádové styly jsou deklarovány v souborech:
 \subsection{GSP}
 \label{subsec:gsp}
 
-Hlavní funkce systému jsou napsány v programovacím jazyce Groovy za použití platformy Grails. Jako výchozí jazyk pro popis prezentační vrstvy aplikace používá tato platforma GSP (\textit{Groovy Server Pages}). Jedná se o jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů.
+Hlavní funkce systému jsou napsány v programovacím jazyce Groovy za použití platformy Grails. Jako výchozí jazyk pro popis prezentační vrstvy aplikace používá tato platforma GSP (\textit{Groovy Server Pages}). Jedná se o jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů \cite{20}.
 
 GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu do bloku \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V prezentační vrstvě používám výhradně druhý způsob. Jako největší nevýhodu tohoto systému považuji jeho relativně vysokou nepřehlednost.
 
@@ -268,3 +268,10 @@ Na ukázce \ref{demo:parent} (nahoře) lze vidět příklad GSP stránky, která
 \end{demo}
 
 Každý potomek je definován uvedením rodiče v hlavičce dokumentu, přičemž na místo elementu \texttt{<g:layoutBody/>} je vykresleno tělo potomka, element \texttt{<g:layoutHead/>} je nahrazen hlavičkou a \texttt{<g:layoutTitle/>} titulkem potomka.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/tms.png}
+    \caption{Screen výsledné aplikace -- profil diplomové práce.}
+    \label{img:tms}
+\end{figure}
