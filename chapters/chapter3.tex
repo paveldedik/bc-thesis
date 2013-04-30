@@ -8,7 +8,7 @@ Příklady nejrozšířenějších značkovacích jazyků:
 \begin{itemize}
     \item XML (\textit{eXtensible Markup Language}) -- vysoce flexibilní metajazyk určený pro popis nejrůznějších typů dat, jež jsou čitelné jak člověkem, tak počítačem.
     \item HTML (\textit{HyperText Markup Language}) -- jazyk určený pro publikaci stránek na webu.
-    \item XHTML (\textit{eXtensible HyperText Markup Language}) -- stejně jako HTML slouží pro popis dat webových dokumentů avšak za použití XML syntaxe.
+    \item XHTML (\textit{eXtensible HyperText Markup Language}) -- stejně jako HTML slouží pro popis dat webových dokumentů, avšak za použití XML syntaxe.
     \item \TeX, \LaTeX -- jazyky určené převážně pro sazbu matematických a akademických dokumentů.
     \item SVG (\textit{Scalable Vector Graphics}) -- slouží pro popis vektorových obrázků s využitím XML syntaxe.
     \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu, který je používán pro ukládání a přenos textových informací. Na rozdíl od XML je čitelnější a méně datově objemný (viz srovnání XML dokumentu \ref{example:xml} a JSON dokumentu \ref{example:json}).
@@ -79,13 +79,13 @@ Každá HTML stránka musí začínat deklarací \textit{doctypu}, který stanov
 HTML~5 je zcela nový W3C standard pro tvorbu webových stránek, který nahrazuje více než deset let starý standard HTML~4.01. Ačkoliv je tento nový standard stále ve fázi \textit{Candidate Recommendation} (zkráceně CR) \cite{17}, je webovými prohlížeči široce podporován. Mezi některé nové nástroje a vylepšení patří:
 
 \begin{itemize}
-    \item zjednodušený doctype -- \texttt{<!DOCTYPE html>}
-    \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>}
-    \item podpora vektorových obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>}
-    \item nové sémantické elementy -- například \texttt{<header>}, \texttt{<footer>} a \texttt{<nav>}
-    \item nové HTML atributy -- například \texttt{placeholder} nebo \texttt{autocomplete}
-    \item podpora akcelerace grafickou kartou a knihovna WebGL\footnote{\textit{Web-based Graphics Library} -- jedná se o náhradu platformy Adobe Flash, která umožňuje integraci animací a multimediálního obsahu na webových stránkách. WebGL využívá JavaScript, čímž na straně klienta odpadá nutnost instalace dodatečného softwaru.}
-    \item pokročilejší podpora mobilních zařízení
+    \item zjednodušený doctype -- \texttt{<!DOCTYPE html>},
+    \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>},
+    \item podpora vektorových obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>},
+    \item nové sémantické elementy -- například \texttt{<header>}, \texttt{<footer>} a \texttt{<nav>},
+    \item nové HTML atributy -- například \texttt{placeholder} nebo \texttt{autocomplete},
+    \item podpora akcelerace grafickou kartou a knihovna WebGL\footnote{\textit{Web-based Graphics Library} -- jedná se o náhradu platformy Adobe Flash, která umožňuje integraci animací a multimediálního obsahu na webových stránkách. WebGL využívá JavaScript, čímž na straně klienta odpadá nutnost instalace dodatečného softwaru.},
+    \item pokročilejší podpora mobilních zařízení.
 \end{itemize}
 
 \section{CSS}
@@ -202,7 +202,7 @@ V Bootstrapu lze povolit responzivní design deklarací příslušného CSS styl
 
 \subsection{Typografie}
 
-Pro úpravu typografie v Bootstrapu je určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnávání textu jsou předdefinované třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right} \cite{19}.
+Pro úpravu typografie je v Bootstrapu určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnávání textu jsou předdefinovány třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right} \cite{19}.
 
 \begin{example}
     \centering
@@ -218,7 +218,7 @@ Pro úpravu typografie v Bootstrapu je určen soubor \texttt{variables.less}, kd
 
 \subsection{Formuláře}
 
-Formuláře lze konstruovat dvěma způsoby. První způsob je omezen na použití elementu \texttt{<form>}, který lze používat libovolným způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} definován na elementu \texttt{<form>}; dále je nutné, aby byla u jednotlivých elementů definována správná třída (příklad \ref{example:form}) \cite{19}.
+Formuláře lze konstruovat dvěma způsoby. První způsob nevyžaduje na elementu \texttt{<form>} použití žádných tříd a lze tak definovat formuláře standardním způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} na elementu \texttt{<form>}. Dále je nutné, aby byla definována správná třída i u dědičných elementů (příklad \ref{example:form}) \cite{19}.
 
 \begin{example}
     \centering
@@ -241,7 +241,7 @@ Styly tlačítek lze aplikovat použitím třídy \texttt{.btn}, typicky na elem
 
 \subsection{Navigační panel}
 
-Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném počátku stránky \cite{19}.
+Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném začátku stránky \cite{19}.
 
 \begin{example}
     \centering
@@ -251,7 +251,7 @@ Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby 
 </div>
     \end{lstlisting}
     \caption{Fixní navigační panel.}
-    \label{example:form}
+    \label{example:navbar}
 \end{example}
 
 \subsection{Modální okna}
@@ -272,5 +272,5 @@ Modální okna jsou JavaScriptem vykreslené dialogy určené pro zobrazení dop
 </div>
     \end{lstlisting}
     \caption{Použití modálního okna.}
-    \label{example:form}
+    \label{example:modal}
 \end{example}

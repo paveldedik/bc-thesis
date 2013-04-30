@@ -1,6 +1,6 @@
 \chapter{Informační systém pro správu závěrečných prací}
 
-Úkolem praktická části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem vytvořit nástroj pro zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red Hat.
+Úkolem praktická části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem vytvořit nástroj pro zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red~Hat.
 
 Tvorbu praktické části práce jsem rozdělil do tří částí. Cílem první čísti bylo vytvořit drátěný model aplikace, který pomohl blíže specifikovat nástroje systému. Ve druhá části jsem se pustil do tvorby grafického návrhu, jehož úkolem bylo představit vizuální podobu aplikace. Úkolem poslední části bylo integrovat grafický návrh do implementace informačního systému.
 
@@ -8,7 +8,7 @@ Tvorbu praktické části práce jsem rozdělil do tří částí. Cílem první
 
 Informační systém poskytuje rozhraní pro studenty, kteří se mohou přihlašovat k tématům, komentovat jednotlivá témata nebo závěrečné práce. Dále k systému přistupují vedoucí, kteří mají ve správě témata, závěrečné práce a mohou schvalovat přihlášky studentů přihlášených k tématům. Systém poskytuje rozhraní i pro návštěvníky, kteří mohou procházet jednotlivá témata a závěrečné práce. Studenti partnerských fakult se mohou zaregistrovat na základě fakultního e-mailu.
 
-Systém eviduje témata, závěrečné práce, uživatele, univerzity a přihlášky. Jednotlivá témata popisují cíl práce, mohou být vypsány pro více studentů. Systém umožňuje témata vypisovat, upravovat a mazat. Témata evidují:
+Systém eviduje témata, závěrečné práce, uživatele, univerzity a přihlášky. Jednotlivá témata popisují cíl práce a mohou být vypsány pro více studentů. Systém umožňuje témata vypisovat, upravovat a mazat. Témata evidují:
 
 \begin{itemize}
     \item seznam přihlášených studentů;
@@ -34,7 +34,7 @@ V systému existuje několik uživatelských rolí, které se liší v přístup
 \begin{itemize}
     \item Návštěvník -- má právo procházet jednotlivá témata, závěrečné práce a registrovat se dle fakultního e-mailu.
     \item Student -- může se přihlásit k povoleným tématům, spravuje vlastní závěrečné práce, dále má možnost komentovat jednotlivé témata a závěrečné práce.
-    \item Univerzitní vedoucí -- jedná se o vedoucího na dané univerzitě, může vytvářet závěrečné práce, schvaluje přihlášky k jednotlivým tématům.
+    \item Univerzitní vedoucí -- jedná se o vedoucího na dané univerzitě, může závěrečné práce vytvářet a schvaluje přihlášky k jednotlivým tématům.
     \item Vedoucí -- na rozdíl od univerzitního vedoucího patří pod jeho správu i tvorba zadání témat.
     \item Správce -- může spravovat většinu obsahu, přidávat do systému univerzity a uživatele.
 \end{itemize}
