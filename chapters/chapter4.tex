@@ -1,6 +1,6 @@
 \chapter{Informační systém pro správu závěrečných prací}
 
-Úkolem praktická části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem poskytnout uživatelské rozhraní uživatelům aplikace pro správu zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red~Hat.
+Úkolem praktické části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem poskytnout uživatelské rozhraní uživatelům aplikace pro správu zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red~Hat.
 
 Tvorbu praktické části práce jsem rozdělil do tří částí. Cílem první čísti bylo vytvořit drátěný model aplikace, který pomohl blíže specifikovat nástroje systému. Ve druhá části jsem se pustil do tvorby grafického návrhu, jehož úkolem bylo představit vizuální podobu aplikace. Úkolem poslední části bylo integrovat grafický návrh do implementace informačního systému.
 
@@ -88,7 +88,7 @@ V systému figuruje ještě jeden odlehčený layout, který je určen pouze pro
 
 \section{Grafický návrh}
 
-Přesto, že nebyly kladeny žádné nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týče barevnosti.
+Přesto, že nebyly kladeny žádné nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týče barevnosti. Zatímco tvorba drátěného modelu je důležitá převážně pro zvýšení použitelnosti systému, grafický návrh představuje UI design.
 
 \subsection{Písmo}
 
@@ -141,14 +141,16 @@ V grafickém návrhu je použito osm stupňů šedi a dva stupně červené barv
 
 Prezentační vrstva systému využívá následující technologie, knihovny a webové rámce:
 
-\begin{enumerate}
+\begin{itemize}
     \item HTML~5 (viz kapitola~\ref{sec:html})
     \item CSS~3 (viz kapitola~\ref{sec:css})
     \item LESS (viz kapitola~\ref{sec:less})
     \item JavaScript\footnote{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}
     \item Twitter Bootstrap (viz kapitola~\ref{sec:bootstrap})
     \item GSP (viz kapitola~\ref{subsec:gsp})
-\end{enumerate}
+\end{itemize}
+
+Nadměrné použití některých technologií (typicky JavaScriptu -- modální okna) přitom může vést ke snížení použitelnosti systému, je tedy důležité zvážit jejich využití.
 
 Zatímco ve čtvrté kapitole jsem se věnoval specifikaci několika výše jmenovaných technologií, nyní se zaměřím na jejich použití v informačním systému. Vzhledem k zaměření systému však není potenciál všech použitých technologií plně využit (jde zejména o HTML~5 standard).
 
