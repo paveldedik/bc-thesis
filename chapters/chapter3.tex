@@ -1,17 +1,17 @@
 \chapter{Webové technologie}
 \label{chap:languages}
 
-\textbf{Značkovací jazyky} (anglicky \textit{Markup languages}) jsou formální jazyky, které umožňují v rámci rozšíření textu v přirozeném jazyce syntakticky rozlišit jednotlivé konstrukce pro vymezení struktury textu a jeho významu; dále umožňují ukládat například informace o původu, obsahu a autorských právech dokumentu \cite{14} \cite{16}.
+\textbf{Značkovací jazyky} (anglicky \textit{Markup languages}) jsou formální jazyky, které umožňují v rámci rozšíření textu v přirozeném jazyce syntakticky rozlišit jednotlivé konstrukce pro vymezení struktury textu a jeho významu; dále umožňují ukládat například informace o původu, obsahu a autorských právech dokumentu. \cite{14} \cite{16}
 
 Příklady nejrozšířenějších značkovacích jazyků:
 
 \begin{itemize}
-    \item XML (\textit{eXtensible Markup Language}) -- vysoce flexibilní metajazyk určený pro popis nejrůznějších typů dat, jež jsou čitelné jak člověkem, tak počítačem.
+    \item XML (\textit{eXtensible Markup Language}) -- vysoce flexibilní metajazyk určený pro popis nejrůznějších typů dat, které jsou čitelné jak člověkem, tak počítačem.
     \item HTML (\textit{HyperText Markup Language}) -- jazyk určený pro publikaci stránek na webu.
     \item XHTML (\textit{eXtensible HyperText Markup Language}) -- stejně jako HTML slouží pro popis dat webových dokumentů, avšak za použití XML syntaxe.
     \item \TeX, \LaTeX -- jazyky určené převážně pro sazbu matematických a akademických dokumentů.
     \item SVG (\textit{Scalable Vector Graphics}) -- slouží pro popis vektorových obrázků s využitím XML syntaxe.
-    \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu, který je používán pro ukládání a přenos textových informací. Na rozdíl od XML je čitelnější a méně datově objemný (viz srovnání XML dokumentu \ref{example:xml} a JSON dokumentu \ref{example:json}).
+    \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu, který je používán pro ukládání a přenos textových informací. Na rozdíl od XML je čitelnější a méně datově objemný (viz srovnání XML dokumentu a JSON dokumentu -- příklad \ref{example:xml} a \ref{example:json}).
     \item Markdown -- minimalistický značkovací jazyk speciálně navržen pro sazbu kratších textů. Markdown používají převážně systémy pro správu obsahu na webu\footnote{Systémy pro správu obsahu (anglicky \textit{Content Management System}, zkráceně CMS) jsou systémy primárně určené pro publikaci, editaci a modifikaci obsahu na webu bez nutnosti porozumění složitější syntaxe značkovacích jazyků.}.
 \end{itemize}
 
@@ -43,14 +43,14 @@ Příklady nejrozšířenějších značkovacích jazyků:
     \label{example:json}
 \end{example}
 
-\textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu, význam a vizuální podobu XML nebo HTML dokumentů. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku) \cite{16}.
+\textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu, význam a vizuální podobu XML nebo HTML dokumentů. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku). \cite{16}
 
 Příklady stylovacích jazyků:
 
 \begin{itemize}
-    \item CSS (\textit{Cascading StyleSheets}) -- jazyk specificky určený pro stylování webových dokumentů.
+    \item CSS (\textit{Cascading StyleSheets}) -- jazyk specificky určený pro popis vizuální stránky dokumentů napsaných v nějakém značkovacím jazyce (primárně HTML).
     \item XSL (\textit{eXtensible Stylesheet Language}) -- rodina jazyků určených pro prezentaci a transformaci XML dokumentů.
-    \item SASS (\textit{Syntactically Awesome StyleSheets}) -- nestandardizovaný stylovací jazyk, který rozšiřuje CSS o dynamické chování (umožňuje definovat například proměnné, mixiny nebo funkce).
+    \item SASS (\textit{Syntactically Awesome StyleSheets}) -- nestandardizovaný stylovací jazyk, který rozšiřuje CSS o dynamické chování (umožňuje definovat například proměnné, makra nebo funkce).
     \item LESS (\textit{Leaner CSS}) -- alternativa SASS.
 \end{itemize}
 
@@ -59,7 +59,7 @@ Příklady stylovacích jazyků:
 
 HTML se vyvíjí již od roku 1990, od roku 1995 jako W3C standard, během této doby prošlo mimořádným vývojem, díky kterému dnes mohou autoři vytvářet komplexní stránky obsahující audio, video nebo 3D animace.
 
-Každá HTML stránka musí začínat deklarací \textit{doctypu}, který stanovuje verzi dokumentu. Následuje kořenový element \texttt{<html>}, který uzavírá zbytek dokumentu. Obsah kořenového elementu začíná deklarací \texttt{<head>} elementu, který slouží pro popis dokumentu (typicky zahrnuje například CSS styly), následuje element \texttt{<body>}, který definuje viditelný obsah na stránce (viz příklad \ref{example:html}).
+Každá HTML stránka musí začínat deklarací \textit{doctypu}, který stanovuje verzi dokumentu. Následuje kořenový element \texttt{<html>}, který uzavírá zbytek dokumentu. Obsah kořenového elementu začíná deklarací elementu \texttt{<head>}, který slouží pro popis dokumentu (typicky zahrnuje například CSS styly), následuje element \texttt{<body>}, který definuje viditelný obsah na stránce (viz příklad \ref{example:html}).
 
 \begin{example}
     \centering
@@ -79,12 +79,12 @@ Každá HTML stránka musí začínat deklarací \textit{doctypu}, který stanov
 HTML~5 je zcela nový W3C standard pro tvorbu webových stránek, který nahrazuje více než deset let starý standard HTML~4.01. Ačkoliv je tento nový standard stále ve fázi \textit{Candidate Recommendation} (zkráceně CR) \cite{17}, je webovými prohlížeči široce podporován. Mezi některé nové nástroje a vylepšení patří:
 
 \begin{itemize}
-    \item zjednodušený doctype -- \texttt{<!DOCTYPE html>},
-    \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>},
-    \item podpora vektorových obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>},
-    \item nové sémantické elementy -- například \texttt{<header>}, \texttt{<footer>} a \texttt{<nav>},
-    \item nové HTML atributy -- například \texttt{placeholder} nebo \texttt{autocomplete},
-    \item podpora akcelerace grafickou kartou a knihovna WebGL\footnote{\textit{Web-based Graphics Library} -- jedná se o náhradu platformy Adobe Flash, která umožňuje integraci animací a multimediálního obsahu na webových stránkách. WebGL využívá JavaScript, čímž na straně klienta odpadá nutnost instalace dodatečného softwaru.},
+    \item zjednodušený doctype -- \texttt{<!DOCTYPE html>};
+    \item podpora multimédií -- elementy \texttt{<video>} a \texttt{<audio>};
+    \item podpora vektorových obrázků -- elementy \texttt{<canvas>} a \texttt{<svg>};
+    \item nové sémantické elementy -- například \texttt{<header>}, \texttt{<footer>} a \texttt{<nav>};
+    \item nové HTML atributy -- například \texttt{placeholder} nebo \texttt{autocomplete};
+    \item podpora akcelerace grafickou kartou a knihovna WebGL\footnote{\textit{Web-based Graphics Library} -- jedná se o náhradu platformy Adobe Flash, která umožňuje integraci animací a multimediálního obsahu na webových stránkách. WebGL využívá JavaScript, čímž na straně klienta odpadá nutnost instalace dodatečného softwaru.};
     \item pokročilejší podpora mobilních zařízení.
 \end{itemize}
 
@@ -104,12 +104,12 @@ Cílem CSS je oddělit formátování od obsahu HTML dokumentu. V prvních verz�
 CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále jedná o nedokončenou specifikaci, majoritní prohlížeče již většinu nových CSS nástrojů podporují. Mezi některé nové vlastnosti, pravidla a selektory nového standardu patří:
 
 \begin{itemize}
-    \item vlastnost \texttt{border-radius} -- umožňuje nastavit rádius rámečku;
-    \item vlastnost \texttt{box-shadow} -- umožňuje vytvořit stín jakéhokoli objektu;
-    \item vlastnost \texttt{transition} -- umožňuje nastavit efekt animace při změně stylu (například při aktivaci tlačítka);
-    \item selektor \texttt{:first-of-type} a \texttt{:last-of-type} -- slouží pro označení každého prvního (resp. posledního) potomka označovaného elementu;
-    \item selektor \texttt{:nth-child(n)} -- slouží pro označení každého HTML elementu, který je $n$-tým potomkem rodičovského elementu;
-    \item selektor \texttt{[attr*=value]} -- slouží pro označení každého elementu, jehož atribut \texttt{attr} obsahuje podřetězec \texttt{value};
+    \item vlastnost \texttt{border-radius} -- umožňuje nastavit rádius zaoblení rohů blokového prvku;
+    \item vlastnost \texttt{box-shadow} -- umožňuje nastavit stín blokového prvku;
+    \item vlastnost \texttt{transition} -- umožňuje nastavit efekt animace přechodu při změně stylu prvku (například při aktivaci tlačítka);
+    \item selektor \texttt{:first-of-type} a \texttt{:last-of-type} -- slouží pro označení každého prvního (resp. posledního) potomka prvku;
+    \item selektor \texttt{:nth-child(n)} -- slouží pro označení každého prvku, který je $n$-tým potomkem rodiče;
+    \item selektor \texttt{[attr*=value]} -- slouží pro označení každého prvku, který obsahuje v atributu \texttt{attr} podřetězec \texttt{value};
     \item pravidlo \texttt{@font-face} -- umožňuje definici vlastního fontu, který nemusí být přítomen na klientském počítači.
 \end{itemize}
 
@@ -133,7 +133,7 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
 \section{LESS}
 \label{sec:less}
 
-Úkolem LESS je zredukovat opakující se části kódu, zpřehlednit a usnadnit psaní kaskádových stylů. LESS je \textit{preprocesor}, který zavádí do CSS některé vlastnosti známé z jiných programovacích jazyků jako jsou proměnné, funkce nebo makra (mixiny). Soubor LESS lze překompilovat na CSS jak na straně klienta (prostřednictvím JavaScriptu), tak na straně serveru (s pomocí Ruby, Pythonu a dalších jazyků) \cite{18}.
+Úkolem LESS je zredukovat opakující se části kódu, zpřehlednit a usnadnit psaní kaskádových stylů. LESS je \textit{preprocesor}, který zavádí do CSS některé vlastnosti známé z jiných programovacích jazyků jako jsou proměnné, funkce nebo makra (mixiny). Soubor LESS lze překompilovat na CSS jak na straně klienta (prostřednictvím JavaScriptu), tak na straně serveru (s pomocí Ruby, Pythonu a dalších jazyků). \cite{18}
 
 \begin{example}
     \centering
@@ -144,7 +144,7 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
 // definice promenne
 @fontColor: #808080;
 
-// definice mixinu
+// definice makra
 .pretty-link(@fontSize: 16px) {
   color: @fontColor;
   font-size: @fontSize;
@@ -166,13 +166,13 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
 \section{Twitter Bootstrap}
 \label{sec:bootstrap}
 
-Twitter Bootstrap (dále jen Bootstrap) je sada kaskádových stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistence mezi vývojáři ve společnosti Twitter\footnote{Twitter je sociální síť, která umožňuje jeho uživatelům posílat a číst krátké textové zprávy do 140 znaků (tzv. \textit{tweety}).}. V roce 2011 byl Bootstrap uvolněn jako open-source\footnote{Open-source, neboli otevřený software je typ softwaru, jehož zdrojový kód je přístupný jak technicky tak licenčně.} projekt a nyní se jedná o nejpopulárnější webový rámec na GitHubu\footnote{GitHub je webová služba určená pro distribuovaný vývoj softwaru.} \cite{19}.
+Twitter Bootstrap (dále jen Bootstrap) je sada kaskádových stylů, ikonek a JavaScriptových knihoven, které urychlují vývoj webových aplikací. Bootstrap byl primárně vytvořen, aby potlačil nekonzistence mezi vývojáři ve společnosti Twitter\footnote{Twitter je sociální síť, která umožňuje jeho uživatelům posílat a číst krátké textové zprávy do 140 znaků (tzv. \textit{tweety}).}. V roce 2011 byl Bootstrap uvolněn jako open-source\footnote{Open-source, neboli otevřený software je typ softwaru, jehož zdrojový kód je přístupný jak technicky tak licenčně.} projekt a nyní se jedná o nejpopulárnější webový rámec na GitHubu\footnote{GitHub je webová služba určená pro distribuovaný vývoj softwaru.}. \cite{19}
 
 Bootstrap má relativně vyspělou podporu technologií HTML~5 a CSS~3. Větší část Bootstrapu je napsaná v preprocesoru LESS, primárně je však dostupná zkompilovaná verze v CSS. JavaScriptové komponenty jsou postavené na knihovně jQuery\footnote{jQuery je JavaScriptová knihovna primárně určená pro dynamické zpracování HTML dokumentů.}.
 
 \subsection{Grid systém a layout}
 
-Grid systém rozděluje horizontální a vertikální prostor webové stránky na individuální části, kde může být umístěn text, nadpisy, obrázky nebo reklamní elementy. Výchozí grid systém Bootstrapu je rozdělen na 12 sloupců s šířkou 940$px$ pro fixní layout \cite{19}.
+Grid systém rozděluje horizontální a vertikální prostor webové stránky na individuální části, kde může být umístěn text, nadpisy, obrázky nebo reklamní elementy. Výchozí grid systém Bootstrapu je rozdělen na 12 sloupců s šířkou $940~px$ pro fixní layout. \cite{19}
 
 Pro vytvoření základního layoutu HTML stránky jsou v Bootstrapu definované třídy \texttt{.spanm} a \texttt{.row}, kde $m$ je proměnná definující šířku bloku. Šířku každého bloku \texttt{.spanm} lze vypočítat ze vzorce:
 
@@ -196,13 +196,13 @@ Pro tvorbu komplexnějšího layoutu slouží třídy \texttt{.offsetm}, které 
 
 \subsection{Responzivní design}
 
-Responzivní design je typ dokumentu, který reaguje na své prostředí. Jedná se o metodu, díky které lze přizpůsobit obsah HTML stránky podle šířky displeje zařízení. Tato technika je v posledních letech populární především díky oblíbenosti mobilních zařízení, nevýhodou je nutnost přenášení vyššího objemu dat mezi klientem a serverem \cite{6} \cite{15} \cite{19}.
+Responzivní design je typ dokumentu, který reaguje na své prostředí. Jedná se o metodu, díky které lze přizpůsobit obsah HTML stránky podle šířky displeje zařízení. Tato technika je v posledních letech populární především díky oblíbenosti mobilních zařízení, nevýhodou je nutnost přenosu vyššího objemu dat mezi klientem a serverem. \cite{6} \cite{15} \cite{19}
 
 V Bootstrapu lze povolit responzivní design deklarací příslušného CSS stylu a meta elementu v hlavičce HTML dokumentu. Implicitně se responzivní layout umí \uv{přizpůsobit} šesti úrovním velikosti displejů.
 
 \subsection{Typografie}
 
-Pro úpravu typografie je v Bootstrapu určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnávání textu jsou předdefinovány třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right} \cite{19}.
+Pro úpravu typografie je v Bootstrapu určen soubor \texttt{variables.less}, kde lze definovat například velikost písma, odstavců nebo řádkování (příklad \ref{example:bootstrap-variables}). Pro zarovnání textu jsou v Bootstrapu přítomny třídy \texttt{.text-left}, \texttt{.text-center} a \texttt{.text-right}. \cite{19}
 
 \begin{example}
     \centering
@@ -218,7 +218,7 @@ Pro úpravu typografie je v Bootstrapu určen soubor \texttt{variables.less}, kd
 
 \subsection{Formuláře}
 
-Formuláře lze konstruovat dvěma způsoby. První způsob nevyžaduje na elementu \texttt{<form>} použití žádných tříd a lze tak definovat formuláře standardním způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} na elementu \texttt{<form>}. Dále je nutné, aby byla definována správná třída i u dědičných elementů (příklad \ref{example:form}) \cite{19}.
+Formuláře lze konstruovat dvěma způsoby. První způsob nevyžaduje na elementu \texttt{<form>} použití žádných tříd a lze tak definovat formuláře standardním způsobem. Druhý způsob vyžaduje použití třídy \texttt{.form-inline} nebo \texttt{.form-horizontal} na elementu \texttt{<form>}. Dále je nutné, aby byly definovány správné třídy i u dědičných elementů (příklad \ref{example:form}). \cite{19}
 
 \begin{example}
     \centering
@@ -237,11 +237,11 @@ Formuláře lze konstruovat dvěma způsoby. První způsob nevyžaduje na eleme
 
 \subsection{Tlačítka}
 
-Styly tlačítek lze aplikovat použitím třídy \texttt{.btn}, typicky na element \texttt{<a>} nebo \texttt{<button>}. Pro sémantické rozlišení akce tlačítka jsou v Bootstrapu určené třídy \texttt{.btn-pirmary}, \texttt{.btn-info}, \texttt{.btn-success}, \texttt{.btn-link}, \texttt{.btn-danger} a \texttt{.btn-warning}, které musí být aplikovány zároveň s třídou \texttt{.btn}. V Bootstrapu jsou dále přítomny třídy \texttt{.btn-mini}, \texttt{.btn-small} a \texttt{.btn-large}, které stanovují velikost tlačítka \cite{19}.
+Styly tlačítek lze aplikovat použitím třídy \texttt{.btn}, typicky na element \texttt{<a>} nebo \texttt{<button>}. Pro sémantické rozlišení akce tlačítka jsou v Bootstrapu určené třídy \texttt{.btn-pirmary}, \texttt{.btn-info}, \texttt{.btn-success}, \texttt{.btn-link}, \texttt{.btn-danger} a \texttt{.btn-warning}, které musí být použity zároveň s třídou \texttt{.btn}. V Bootstrapu jsou dále přítomny třídy \texttt{.btn-mini}, \texttt{.btn-small} a \texttt{.btn-large}, které stanovují velikosti tlačítek. \cite{19}
 
 \subsection{Navigační panel}
 
-Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném začátku stránky \cite{19}.
+Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby použití tohoto panelu -- fixní a statický, které se liší ve způsobu zobrazení na stránce. Fixní (třída \texttt{.navbar-fixed-top}) je viditelný na celé stránce, naopak statický (třída \texttt{.navbar-static-top}) pouze na úplném začátku stránky. \cite{19}
 
 \begin{example}
     \centering
@@ -256,7 +256,7 @@ Součástí Bootstrapu je jednoduchý navigační panel. Existují dva způsoby 
 
 \subsection{Modální okna}
 
-Modální okna jsou JavaScriptem vykreslené dialogy určené pro zobrazení doplňkových informací nebo komponent stránky (například formulářů), které jsou při běžné práci neviditelné \cite{19}.
+Modální okna jsou JavaScriptem vykreslené dialogy určené pro zobrazení doplňkových informací nebo komponent stránky (například formulářů), které jsou při běžné práci neviditelné. \cite{19}
 
 \begin{example}
     \centering
