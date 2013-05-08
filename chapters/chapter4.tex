@@ -31,23 +31,37 @@ Ke každé závěrečné práci se smí přihlásit pouze jeden student. Systém
 
 V systému existuje několik uživatelských rolí, které se liší v přístupových právech. Každý registrovaný uživatel je automaticky student. Systém eviduje následující uživatelské role:
 
-\begin{itemize}
-    \item Návštěvník -- má právo procházet jednotlivá témata, závěrečné práce a registrovat se na základě fakultního e-mailu.
-    \item Student -- může se přihlásit k povoleným tématům, spravuje vlastní závěrečné práce, dále má možnost komentovat jednotlivá témata a závěrečné práce.
-    \item Univerzitní vedoucí -- jedná se o vedoucího na dané univerzitě, může závěrečné práce vytvářet a schvaluje přihlášky k jednotlivým tématům.
-    \item Vedoucí -- na rozdíl od univerzitního vedoucího patří pod jeho správu i tvorba zadání témat.
-    \item Správce -- může spravovat většinu obsahu, přidávat do systému univerzity a uživatele.
-\end{itemize}
+\begin{description}
+    \item[Návštěvník] Má právo procházet jednotlivá témata, závěrečné práce a registrovat se na základě fakultního e-mailu.
+    \item[Student] Může se přihlásit k povoleným tématům, spravuje vlastní závěrečné práce, dále má možnost komentovat jednotlivá témata a závěrečné práce.
+    \item[Univerzitní vedoucí] Jedná se o vedoucího na dané univerzitě, může závěrečné práce vytvářet a schvaluje přihlášky k jednotlivým tématům.
+    \item[Vedoucí] Na rozdíl od univerzitního vedoucího patří pod jeho správu i tvorba zadání témat.
+    \item[Správce] Může spravovat většinu obsahu, přidávat do systému univerzity a uživatele.
+\end{description}
 
-\section{Analýza cílové skupiny}
+%new
+\section{Plánování a analýza}
 
-Cílová skupina uživatelů pracující se systémem je velice úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen -- jedná se o témata z IT oboru. Příklady některých univerzit, které jsou v systému registrovány:
+V rámci tvorby uživatelského rozhraní bylo nutné provést analýzu a porozumět požadavkům kladeným na funkční celky systému. Aby se tedy vývoj systému ubíral správným směrem, bylo nutné pravidelně komunikovat s klientem. Cílem prvních fází tvorby rozhraní byl sběr informací, neboť na základě jejich vyhodnocení mohla být poskytnuta první odezva -- je-li například možné některé požadavky realizovat, je-li jejich realizace praktická a případně existuje-li efektivnější alternativa.
 
-\begin{itemize}
-    \item Masarykova univerzita,
-    \item Vysoké učení technické v Brně,
-    \item České vysoké učení technické v Praze.
-\end{itemize}
+\subsection{Analýza nástrojů systému}
+
+Pro zvýšení kvality uživatelského rozhraní jsou podstatné i další prvky, které nemusí být příliš prioritní a uživatele tolik neomezují. Jejich existence však vede k rychlejší orientaci a často zvyšuje používanost systému. Příkladem může být pokročilý vyhledávač umožňující vyhledávat témata a závěrečné práce podle vedoucích, studentů nebo názvu.
+
+Během sběru informací a konzultací s klientem vznikl seznam další nástrojů, které jsou použity v systému. Tyto nástroje mají za cíl zvýšit kvalitu UX designu.
+
+\begin{description}
+    \item[Kategorie a štítky] Použití štítků umožňuje uživatelům snadněji třídit témata a závěrečné práce. Jeden z prvních nápadů integrace štítků do systému bylo umožnit jejich standardní přiřazování k jednotlivým tématům, avšak s nutností hierarchického zařazení pod některý z kořenových štítků. Kořenové štítky by představovaly kategorie a mohl by je vytvářet pouze správce, zatímco standardní štítky by vytvářeli vedoucí a studenti. Tento přístup má však několik problémů -- prvním problémem je netradiční a tím pádem poměrně neintuitivní způsob použití, další potíž je nutnost vyšší organizace a správy. Nakonec jsem se rozhodl integrovat štítky v systému standardním způsobem a používat je odděleně s kategoriemi.
+    \item[Komentáře] Možnost přispívat k jednotlivým tématům snižuje nutnost e-mailové korespondence a zároveň poskytuje rozhraní pro obecné dotazy. Komentáře lze v systému psát s využitím syntaxe Markdown.
+    \item[Odevzdávárna souborů] Pro jednoduchou manipulaci s přílohou závěrečné práce je vhodná odevzdávarna, která je určená pro nahrávání závěrečného textu a dalších materiálů použitých v praktické části práce.
+    \item[Filtry] Využití filtrů umožňuje témata třídit nejen podle štítků, ale také podle vedoucích a univerzit.
+    \item[Notifikace] Pokud vedoucí například schválí přihlášku studenta nebo napíše komentář k závěrečné práci, je příhodné jej na tuto akci upozornit. Notifikace představují oznámení, které uživatele informují o související aktivitě v sytému.
+\end{description}
+%new
+
+\subsection{Analýza cílové skupiny}
+
+Cílová skupina uživatelů pracující se systémem je velice úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen -- jedná se o témata z IT oboru.
 
 Informační systém je určen především pro studenty v posledních ročnících bakalářského nebo magisterského studia a jejich vedoucí. Tyto skutečnosti mi dávají větší \uv{svobodu} při volbě technologií pro integraci grafického návrhu.
 
@@ -82,7 +96,7 @@ V systému figuruje ještě jeden odlehčený layout, který je určen pouze pro
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/main-layout.png}
-    \caption{Výsledný drátěný model -- profil diplomové práce.}
+    \caption{Výsledný drátěný model profilu diplomové práce.}
     \label{img:layout1}
 \end{figure}
 
@@ -133,7 +147,7 @@ V grafickém návrhu je použito osm stupňů šedi a dva stupně červené barv
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/design.png}
-    \caption{Výsledný grafický návrh -- profil diplomové práce.}
+    \caption{Výsledný grafický návrh profilu diplomové práce.}
     \label{img:design}
 \end{figure}
 
@@ -272,6 +286,6 @@ Každý potomek je definován uvedením rodiče v hlavičce dokumentu, přičem�
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/tms.png}
-    \caption{Screen výsledné aplikace -- profil diplomové práce.}
+    \caption{Ukázka výsledné aplikace -- profil diplomové práce.}
     \label{img:tms}
 \end{figure}

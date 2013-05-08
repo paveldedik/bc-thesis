@@ -12,7 +12,7 @@ bp.pdf: index.tex
 	mv index.pdf bp.pdf
 
 clean:
-	rm -rf *.{log,out,pdf,aux,tfm,600pk,514pk,fls,toc,bbl,blg,fdb_latexmk,synctex.gz}
+	rm -rf *.{dvi,log,out,pdf,aux,tfm,600pk,514pk,fls,toc,bbl,blg,fdb_latexmk,synctex.gz}
 
 recreate: clean all
 	evince bp.pdf
