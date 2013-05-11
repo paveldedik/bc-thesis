@@ -11,36 +11,30 @@ Příklady nejrozšířenějších značkovacích jazyků:
     \item XHTML (\textit{eXtensible HyperText Markup Language}) -- stejně jako HTML slouží pro popis dat webových dokumentů, avšak za použití XML syntaxe.
     \item \TeX, \LaTeX -- jazyky určené převážně pro sazbu matematických a akademických dokumentů.
     \item SVG (\textit{Scalable Vector Graphics}) -- slouží pro popis vektorových obrázků s využitím XML syntaxe.
-    \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu, který je používán pro ukládání a přenos textových informací. Na rozdíl od XML je čitelnější a méně datově objemný (viz srovnání XML dokumentu a JSON dokumentu -- příklad \ref{example:xml} a \ref{example:json}).
+    \item JSON (\textit{JavaScript Object Notation}) -- značkovací jazyk odvozen z JavaScriptu\footnote{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}, který je používán pro ukládání a přenos textových informací. Na rozdíl od XML je čitelnější a méně datově objemný (viz srovnání XML dokumentu a JSON dokumentu -- příklad \ref{example:xml-vs-json}).
     \item Markdown -- minimalistický značkovací jazyk speciálně navržen pro sazbu kratších textů. Markdown používají převážně systémy pro správu obsahu na webu\footnote{Systémy pro správu obsahu (anglicky \textit{Content Management System}, zkráceně CMS) jsou systémy primárně určené pro publikaci, editaci a modifikaci obsahu na webu bez nutnosti porozumění složitější syntaxe značkovacích jazyků.}.
 \end{itemize}
 
 \begin{example}
     \centering
     \begin{lstlisting}
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<product id="123">
+<?xml version="1.0" encoding="UTF-8"?>
+<car id="123">
     <name>Ferrari F430</name>
     <class>Sports car</class>
-</product>
+</car>
     \end{lstlisting}
-    \caption{XML dokument}
-    \label{example:xml}
-\end{example}
-
-\begin{example}
-    \centering
     \begin{lstlisting}
 {
-    "product": {
+    "car": {
         "id": "123",
         "name": "Ferrari F430",
-        "class": "Sports car",
+        "class": "Sports car"
     }
 }
     \end{lstlisting}
-    \caption{JSON dokument}
-    \label{example:json}
+    \caption{Porovnání XML dokumentu (nahoře) a JSON dokumentu (dole).}
+    \label{example:xml-vs-json}
 \end{example}
 
 \textbf{Stylovací jazyky} (anglicky \textit{Stylesheets languages}) jsou formální jazyky, které umožňují definovat strukturu, význam a vizuální podobu XML nebo HTML dokumentů. Na rozdíl od značkovacích jazyků popisují jak mají být jednotlivé elementy vykresleny (např. na displejích nebo v tisku). \cite{16}
@@ -48,7 +42,7 @@ Příklady nejrozšířenějších značkovacích jazyků:
 Příklady stylovacích jazyků:
 
 \begin{itemize}
-    \item CSS (\textit{Cascading StyleSheets}) -- jazyk specificky určený pro popis vizuální stránky dokumentů napsaných v nějakém značkovacím jazyce (primárně HTML).
+    \item CSS (\textit{Cascading StyleSheets}) -- jazyk specificky určený pro popis vizuální stránky dokumentů napsaných v některých značkovacích jazycích (především HTML).
     \item XSL (\textit{eXtensible Stylesheet Language}) -- rodina jazyků určených pro prezentaci a transformaci XML dokumentů.
     \item SASS (\textit{Syntactically Awesome StyleSheets}) -- nestandardizovaný stylovací jazyk, který rozšiřuje CSS o dynamické chování (umožňuje definovat například proměnné, makra nebo funkce).
     \item LESS (\textit{Leaner CSS}) -- alternativa SASS.
@@ -159,7 +153,7 @@ CSS~3 je nová verze W3C standardu pro kaskádové styly. Přesto, že se stále
   color: darken(@fontColor, 20%)
 }
     \end{lstlisting}
-    \caption{Ukázka syntaxe preprocesoru LESS.}
+    \caption{Ukázka syntaxe jazyka LESS.}
     \label{example:less-css}
 \end{example}
 

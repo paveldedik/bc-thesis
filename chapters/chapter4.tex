@@ -1,6 +1,6 @@
 \chapter{Informační systém pro správu závěrečných prací}
 
-Úkolem praktické části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému pro správu bakalářských a diplomových prací. Téma práce bylo vypsáno s cílem poskytnout uživatelské rozhraní uživatelům aplikace pro správu zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red~Hat.
+Úkolem praktické části bakalářské práce bylo provést analýzu a vytvořit grafickou podobu informačního systému  pro správu zadání, kontrolu a schvalování závěrečných prací vypsaných na partnerských fakultách společnosti Red~Hat.
 
 Tvorbu praktické části práce jsem rozdělil do tří částí. Cílem první čísti bylo vytvořit drátěný model aplikace, který pomohl blíže specifikovat nástroje systému. Ve druhá části jsem se pustil do tvorby grafického návrhu, jehož úkolem bylo představit vizuální podobu aplikace. Úkolem poslední části bylo integrovat grafický návrh do implementace informačního systému.
 
@@ -34,7 +34,7 @@ V systému existuje několik uživatelských rolí, které se liší v přístup
 \begin{description}
     \item[Návštěvník] Má právo procházet jednotlivá témata, závěrečné práce a registrovat se na základě fakultního e-mailu.
     \item[Student] Může se přihlásit k povoleným tématům, spravuje vlastní závěrečné práce, dále má možnost komentovat jednotlivá témata a závěrečné práce.
-    \item[Univerzitní vedoucí] Jedná se o vedoucího na dané univerzitě, může závěrečné práce vytvářet a schvaluje přihlášky k jednotlivým tématům.
+    \item[Univerzitní vedoucí] Jedná se o vedoucího na dané univerzitě, může závěrečné práce vytvářet a schvaluje přihlášky podané studenty k jednotlivým tématům.
     \item[Vedoucí] Na rozdíl od univerzitního vedoucího patří pod jeho správu i tvorba zadání témat.
     \item[Správce] Může spravovat většinu obsahu, přidávat do systému univerzity a uživatele.
 \end{description}
@@ -46,13 +46,13 @@ V rámci tvorby uživatelského rozhraní bylo nutné provést analýzu a porozu
 
 \subsection{Analýza nástrojů systému}
 
-Pro zvýšení kvality uživatelského rozhraní jsou podstatné i další prvky, které nemusí být příliš prioritní a uživatele tolik neomezují. Jejich existence však vede k rychlejší orientaci a často zvyšuje používanost systému. Příkladem může být pokročilý vyhledávač umožňující vyhledávat témata a závěrečné práce podle vedoucích, studentů nebo názvu.
+Pro zvýšení kvality uživatelského rozhraní jsou podstatné i další prvky, které nemusí být příliš prioritní a uživatele tolik neomezují. Jejich existence však vede k rychlejší orientaci a často zvyšuje používanost systému.
 
-Během sběru informací a konzultací s klientem vznikl seznam další nástrojů, které jsou použity v systému. Tyto nástroje mají za cíl zvýšit kvalitu UX designu.
+Během sběru informací a konzultací s klientem vznikl seznam další nástrojů, které byly v systému použity. Tyto nástroje mají za cíl zvýšit kvalitu UX designu.
 
 \begin{description}
-    \item[Kategorie a štítky] Použití štítků umožňuje uživatelům snadněji třídit témata a závěrečné práce. Jeden z prvních nápadů integrace štítků do systému bylo umožnit jejich standardní přiřazování k jednotlivým tématům, avšak s nutností hierarchického zařazení pod některý z kořenových štítků. Kořenové štítky by představovaly kategorie a mohl by je vytvářet pouze správce, zatímco standardní štítky by vytvářeli vedoucí a studenti. Tento přístup má však několik problémů -- prvním problémem je netradiční a tím pádem poměrně neintuitivní způsob použití, další potíž je nutnost vyšší organizace a správy. Nakonec jsem se rozhodl integrovat štítky v systému standardním způsobem a používat je odděleně s kategoriemi.
-    \item[Komentáře] Možnost přispívat k jednotlivým tématům snižuje nutnost e-mailové korespondence a zároveň poskytuje rozhraní pro obecné dotazy. Komentáře lze v systému psát s využitím syntaxe Markdown.
+    \item[Kategorie a štítky] Použití štítků umožňuje uživatelům snadněji třídit témata a závěrečné práce. Jeden z prvních nápadů integrace štítků do systému bylo umožnit jejich standardní přiřazování k jednotlivým tématům, avšak s nutností hierarchického zařazení pod některý z kořenových štítků. Kořenové štítky by představovaly kategorie a mohl by je vytvářet pouze správce, zatímco standardní štítky by vytvářeli vedoucí a studenti. Tento přístup má však několik nevýhod -- prvním problémem je netradiční a tím pádem poměrně neintuitivní způsob použití, další potíž je nutnost vyšší organizace a správy. Nakonec jsem se rozhodl integrovat štítky v systému standardním způsobem a používat je odděleně s kategoriemi.
+    \item[Komentáře] Možnost přispívat k jednotlivým tématům snižuje nutnost e-mailové korespondence a zároveň poskytuje rozhraní pro obecné dotazy. Aby bylo docíleno vyšší použitelnosti, lze v systému psát komentáře s využitím syntaxe Markdown.
     \item[Odevzdávárna souborů] Pro jednoduchou manipulaci s přílohou závěrečné práce je vhodná odevzdávarna, která je určená pro nahrávání závěrečného textu a dalších materiálů použitých v praktické části práce.
     \item[Filtry] Využití filtrů umožňuje témata třídit nejen podle štítků, ale také podle vedoucích a univerzit.
     \item[Notifikace] Pokud vedoucí například schválí přihlášku studenta nebo napíše komentář k závěrečné práci, je příhodné jej na tuto akci upozornit. Notifikace představují oznámení, které uživatele informují o související aktivitě v sytému.
@@ -61,13 +61,11 @@ Během sběru informací a konzultací s klientem vznikl seznam další nástroj
 
 \subsection{Analýza cílové skupiny}
 
-Cílová skupina uživatelů pracující se systémem je velice úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen -- jedná se o témata z IT oboru.
-
-Informační systém je určen především pro studenty v posledních ročnících bakalářského nebo magisterského studia a jejich vedoucí. Tyto skutečnosti mi dávají větší \uv{svobodu} při volbě technologií pro integraci grafického návrhu.
+Cílová skupina uživatelů pracující se systémem je velice úzce zaměřená. Největší část návštěvníků tvoří studenti z technicky zaměřených oborů. Tato skupina je dána typem závěrečných prací, pro které je systém primárně určen -- jedná se o témata z IT oboru. K systému navíc přistupují především studenti v posledních ročnících bakalářského nebo magisterského studia a jejich vedoucí. Tyto skutečnosti mi dávají větší \uv{svobodu} při volbě technologií pro integraci grafického návrhu.
 
 \section{Základní layout}
 
-Rozhodl jsem se vytvořit a používat v aplikaci pouze tři základní layouty, přičemž dva se liší pouze prohozením postranního panelu a obsahové části. Použití příliš velkého množství variant rozložení stránky může snižovat použitelnost, naopak volba pouze jednoho layoutu působí příliš staticky. Primární layout (obrázek \ref{img:layout1}) tvoří:
+Rozhodl jsem se vytvořit a používat v aplikaci pouze tři základní layouty, přičemž dva se liší pouze prohozením postranního panelu a obsahové části. Použití příliš velkého množství variant uspořádání komponent stránky může snižovat použitelnost, naopak volba pouze jednoho layoutu působí příliš staticky. Primární layout (obrázek \ref{img:layout1}) tvoří:
 
 \begin{itemize}
     \item Navigační panel -- nachází se v záhlaví stránky a obsahuje hlavní informace o přihlášeném uživateli, vyhledávač a logotyp.
@@ -102,7 +100,7 @@ V systému figuruje ještě jeden odlehčený layout, který je určen pouze pro
 
 \section{Grafický návrh}
 
-Přesto, že nebyly kladeny žádné nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týče barevnosti. Zatímco tvorba drátěného modelu je důležitá převážně pro zvýšení použitelnosti systému, grafický návrh představuje UI design.
+Přesto, že nebyly kladeny žádné nároky na dodržení vizuálního stylu společnosti Red Hat, rozhodl jsem se z něj čerpat alespoň částečně především co se týče barevnosti. Zatímco tvorba drátěného modelu je důležitá převážně pro zvýšení použitelnosti systému, vývoj grafického návrhu zahrnuje především aktivity spojené s UI designem.
 
 \subsection{Písmo}
 
@@ -140,7 +138,7 @@ V grafickém návrhu je použito osm stupňů šedi a dva stupně červené barv
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\textwidth]{images/barvy.pdf}
-    \caption{Základní barvy použité v uživatelském rozhraní.}
+    \caption{Základní barvy používané v grafickém návrhu.}
     \label{img:colors}
 \end{figure}
 
@@ -159,12 +157,12 @@ Prezentační vrstva systému využívá následující technologie, knihovny a 
     \item HTML~5 (viz kapitola~\ref{sec:html})
     \item CSS~3 (viz kapitola~\ref{sec:css})
     \item LESS (viz kapitola~\ref{sec:less})
-    \item JavaScript\footnote{JavaScript je skriptovací dynamicky typovaný jazyk určen primárně pro rozšíření HTML dokumentu o dynamické chování na straně klienta.}
+    \item JavaScript
     \item Twitter Bootstrap (viz kapitola~\ref{sec:bootstrap})
     \item GSP (viz kapitola~\ref{subsec:gsp})
 \end{itemize}
 
-Nadměrné použití některých technologií (typicky JavaScriptu -- modální okna) přitom může vést ke snížení použitelnosti systému, je tedy důležité zvážit jejich využití.
+Nadměrné použití některých technologií (typicky JavaScriptu) přitom může vést ke snížení použitelnosti systému, je tedy důležité zvážit jejich využití.
 
 Zatímco ve čtvrté kapitole jsem se věnoval specifikaci několika výše jmenovaných technologií, nyní se zaměřím na jejich použití v informačním systému. Vzhledem k zaměření systému však není potenciál všech použitých technologií plně využit (jde zejména o HTML~5 standard).
 
@@ -181,7 +179,7 @@ Mezi jednu z předních výhod CSS~3 patří revoluce v podobě pravidla \texttt
 \begin{demo}
     \centering
     \begin{lstlisting}[language=css]
-/* Definice fontu v CSS */
+/* Definice ikonky v CSS */
 .icon-rss:before { content: "\f09e"; }
     \end{lstlisting}
     \begin{lstlisting}[language=html5]
@@ -202,7 +200,7 @@ Grafický návrh systému se značně liší od vizuálního stylu Bootstrapu, b
 
 \begin{itemize}
     \item adresář \texttt{bootstrap} obsahuje zdrojové soubory Bootstrapu;
-    \item soubor \texttt{bootstrap.less} obsahuje importy použitých komponent Bootstrapu a vlastní definované kaskádové styly (importy vlastních stylů musí být umístěny hierarchicky na konci souboru);
+    \item soubor \texttt{bootstrap.less} obsahuje importy použitých komponent Bootstrapu a vlastní definované kaskádové styly (importy vlastních stylů musí být umístěny na konci souboru);
     \item soubor \texttt{variables.less} je určen pro deklaraci proměnných;
     \item soubor \texttt{main.less} slouží pro definici vlastních stylů.
 \end{itemize}
@@ -243,7 +241,7 @@ Vlastní kaskádové styly jsou deklarovány v souborech:
 
 Hlavní funkce systému jsou napsány v programovacím jazyce Groovy za použití platformy Grails. Jako výchozí jazyk pro popis prezentační vrstvy aplikace používá tato platforma GSP (\textit{Groovy Server Pages}). Jedná se o jazyk inspirovaný JSP (\textit{JavaServer Pages}) speciálně navržený pro dynamické zpracování HTML dokumentů.  \cite{20}
 
-GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu do bloku \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V prezentační vrstvě používám výhradně druhý způsob. Jako největší nevýhodu této strategie považuji jeho poměrně vysokou nepřehlednost.
+GSP umožňuje aplikovat dynamické chování dokumentu jednak zasazením samotného Groovy kódu do bloků \texttt{<\% ... \%>} (jedná se však o nedoporučený postup) nebo použitím GSP elementů. V prezentační vrstvě používám výhradně druhý způsob. Jako největší nevýhodu této strategie považuji jeho poměrně vysokou nepřehlednost.
 
 Na ukázce \ref{demo:parent} (nahoře) lze vidět příklad GSP stránky, která slouží jako layout pro tzv. \uv{potomky} (t.j. stránky, které tento definovaný dokument rozšiřují).
 
