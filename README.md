@@ -1,4 +1,4 @@
-Bechelor's Thesis
+Bachelor's Thesis
 =================
 The source code of the developed application is availabele on GitHub -- [Theses Management System](https://github.com/jcechace/Thesis-management-system).
 
